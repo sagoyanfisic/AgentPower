@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.agents
+specs
+tests
+docs
+*.md
+.env*

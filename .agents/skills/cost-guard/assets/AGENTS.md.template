@@ -1,0 +1,28 @@
+# AGENTS.md — <project-name>
+
+Keep this file short. It is context that is loaded every session. Detailed specifications belong in `specs/`, referenced from here.
+
+## Project Conventions
+- Commit Style: <e.g. Conventional Commits>
+- Folder Structure: <brief description or link to key docs>
+- Naming: <relevant naming conventions>
+
+## Architectural Decisions Made
+- <decision> — <rationale in 1-2 lines> — <date or originating feature>
+
+## Confirmed Business Requirements
+- See `specs/mission.md` and feature specs for full details.
+- Key critical requirements summary:
+  - <requirement 1>
+  - <requirement 2>
+
+## Known Technical Debt
+- <item> — priority: <high/medium/low>
+
+## Environment Setup for Local Runs
+- <paths, required environment variables — NO secrets>
+
+## Features
+| Feature | Status | Spec |
+|---|---|---|
+| <name> | <in progress / completed> | `specs/<name>.md` |

@@ -1,0 +1,3402 @@
+[
+  {
+    "id": "devops-001",
+    "question": {
+      "en": "A platform team must let an application read objects from one Cloud Storage bucket without granting broader project access. Which approach best follows least privilege?",
+      "es": "Un equipo de plataforma debe permitir que una aplicación lea objetos de un bucket de Cloud Storage sin conceder un acceso más amplio al proyecto. ¿Qué enfoque sigue mejor mínimo privilegio?"
+    },
+    "options": [
+      {
+        "en": "Grant Project Owner to the application service account",
+        "es": "Concede proyecto Owner para the aplicación cuenta de servicio"
+      },
+      {
+        "en": "Grant Storage Object Viewer on the specific bucket",
+        "es": "Concede el rol Storage objeto Viewer sobre el bucket específico"
+      },
+      {
+        "en": "Grant Storage Admin on the project",
+        "es": "Concede Storage Admin en the proyecto"
+      },
+      {
+        "en": "Use the Compute Viewer role on the project",
+        "es": "Usa the Compute Viewer role en the proyecto"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "Granting Storage Object Viewer at the bucket resource limits the identity to the required read operation and scope.",
+      "es": "conceder Storage objeto Viewer at the bucket recurso limita the identidad para the necesario leer operation y scope."
+    },
+    "source": {
+      "title": "Google Cloud IAM overview",
+      "url": "https://cloud.google.com/iam/docs/overview"
+    }
+  },
+  {
+    "id": "devops-002",
+    "question": {
+      "en": "A developer needs to inspect resources but must not modify them. Which predefined role is the most appropriate at the project level?",
+      "es": "Un desarrollador necesita inspeccionar recursos, pero no debe modificarlos. ¿Cuál predefined role is the most adecuado at the proyecto level?"
+    },
+    "options": [
+      {
+        "en": "Viewer",
+        "es": "Viewer"
+      },
+      {
+        "en": "Editor",
+        "es": "Editor"
+      },
+      {
+        "en": "Owner",
+        "es": "Owner"
+      },
+      {
+        "en": "Service Usage Admin",
+        "es": "Service Usage Admin"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "The Viewer role provides read-only access while avoiding modification permissions.",
+      "es": "El rol Viewer proporciona acceso de solo lectura y evita permisos de modificación."
+    },
+    "source": {
+      "title": "Google Cloud IAM overview",
+      "url": "https://cloud.google.com/iam/docs/overview"
+    }
+  },
+  {
+    "id": "devops-003",
+    "question": {
+      "en": "An organization wants a policy applied to every project unless a narrower exception is explicitly defined. Where should the policy be attached first?",
+      "es": "An organización wants a política applied para every proyecto unless a narrower exception is explicitly defined. ¿Dónde debería the política be asignada primero?"
+    },
+    "options": [
+      {
+        "en": "A single resource",
+        "es": "A único recurso"
+      },
+      {
+        "en": "A service account",
+        "es": "Un servicio account"
+      },
+      {
+        "en": "The organization or an appropriate folder",
+        "es": "The organización o an adecuado folder"
+      },
+      {
+        "en": "A Cloud Build step",
+        "es": "A Cloud compilación step"
+      }
+    ],
+    "correctOption": 2,
+    "explanation": {
+      "en": "Policies attached higher in the resource hierarchy can apply to descendants, where supported by the policy type.",
+      "es": "políticas asignada higher en the recurso hierarchy puede apply para descendants, ¿Dónde supported by the política type."
+    },
+    "source": {
+      "title": "Google Cloud resource hierarchy",
+      "url": "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy"
+    }
+  },
+  {
+    "id": "devops-004",
+    "question": {
+      "en": "A team wants to prevent new Compute Engine VMs from receiving external IP addresses. Which control is designed for this requirement?",
+      "es": "Un equipo quiere Impide nuevo Compute Engine VMs desde receiving external IP addresses. ¿Qué control es designed para this requirement?"
+    },
+    "options": [
+      {
+        "en": "An IAM role binding",
+        "es": "An IAM role binding"
+      },
+      {
+        "en": "An organization policy constraint",
+        "es": "An organización política constraint"
+      },
+      {
+        "en": "A Cloud Monitoring dashboard",
+        "es": "A Cloud monitoreo dashboard"
+      },
+      {
+        "en": "A Cloud Deploy target",
+        "es": "A Cloud desplegar destino"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "Organization Policy constraints control how resources may be configured, including external IP usage.",
+      "es": "organización política constraints control ¿Cómo recursos may be configured, including external IP usage."
+    },
+    "source": {
+      "title": "Organization Policy Service",
+      "url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview"
+    }
+  },
+  {
+    "id": "devops-005",
+    "question": {
+      "en": "A project is moved under a different folder. What should the team expect from inherited IAM policies?",
+      "es": "A proyecto is moved under a diferente folder. ¿Qué debería the team expect desde inherited IAM políticas?"
+    },
+    "options": [
+      {
+        "en": "All inherited bindings are deleted",
+        "es": "todos los inherited bindings are deleted"
+      },
+      {
+        "en": "Bindings from the new ancestry may apply",
+        "es": "Bindings desde the nuevo ancestry may apply"
+      },
+      {
+        "en": "Only resource-level policies remain",
+        "es": "solo recurso-level políticas remain"
+      },
+      {
+        "en": "The project becomes inaccessible automatically",
+        "es": "The proyecto becomes inaccessible automatically"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "IAM inheritance follows the current resource hierarchy, so the new ancestry can change effective access.",
+      "es": "IAM inheritance follows the actual recurso hierarchy, so the nuevo ancestry puede change effective acceso."
+    },
+    "source": {
+      "title": "Google Cloud resource hierarchy",
+      "url": "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy"
+    }
+  },
+  {
+    "id": "devops-006",
+    "question": {
+      "en": "A security team needs to deny a permission even when an inherited allow policy grants it. Which IAM capability should they evaluate?",
+      "es": "Un equipo de seguridad necesita deny a permiso even when an inherited Permite política grants it. ¿Cuál IAM capability debería they evaluate?"
+    },
+    "options": [
+      {
+        "en": "IAM deny policies",
+        "es": "IAM deny políticas"
+      },
+      {
+        "en": "Cloud Storage lifecycle rules",
+        "es": "Cloud Storage lifecycle rules"
+      },
+      {
+        "en": "VPC firewall logging",
+        "es": "VPC firewall logging"
+      },
+      {
+        "en": "Cloud Build substitutions",
+        "es": "Cloud compilación substitutions"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "IAM deny policies can block selected permissions across inherited allow bindings when the permission and resource support the feature.",
+      "es": "IAM deny políticas puede block selected permisos entre inherited Permite bindings when the permiso y recurso support the feature."
+    },
+    "source": {
+      "title": "Google Cloud IAM overview",
+      "url": "https://cloud.google.com/iam/docs/overview"
+    }
+  },
+  {
+    "id": "devops-007",
+    "question": {
+      "en": "A company wants separate billing and access boundaries for development and production workloads. Which resource should normally provide that boundary?",
+      "es": "Una empresa wants separate billing y acceso boundaries para development y production cargas de trabajo. ¿Cuál recurso debería normally provide that boundary?"
+    },
+    "options": [
+      {
+        "en": "A label",
+        "es": "A label"
+      },
+      {
+        "en": "A project",
+        "es": "A proyecto"
+      },
+      {
+        "en": "A VM instance",
+        "es": "A VM instancia"
+      },
+      {
+        "en": "A log entry",
+        "es": "A registro entry"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "Projects provide important administrative, IAM, billing, quota, and service boundaries.",
+      "es": "proyectos provide important administrative, IAM, billing, quota, y service boundaries."
+    },
+    "source": {
+      "title": "Google Cloud resource hierarchy",
+      "url": "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy"
+    }
+  },
+  {
+    "id": "devops-008",
+    "question": {
+      "en": "A team needs to grant the same read-only access to many engineers and manage membership outside individual IAM bindings. What should they use?",
+      "es": "Un equipo necesita Concede the mismo leer-solo acceso para many engineers y manage membership outside individual IAM bindings. ¿Qué debería they Usa?"
+    },
+    "options": [
+      {
+        "en": "A Google group",
+        "es": "A Google group"
+      },
+      {
+        "en": "A shared service account key",
+        "es": "A shared cuenta de servicio clave"
+      },
+      {
+        "en": "A VM metadata value",
+        "es": "A VM metadata value"
+      },
+      {
+        "en": "A Cloud Storage object ACL only",
+        "es": "A Cloud Storage objeto ACL solo"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Groups simplify membership management while IAM grants the group the required role.",
+      "es": "Groups simplify membership management while IAM grants the group the necesario role."
+    },
+    "source": {
+      "title": "Google Cloud IAM overview",
+      "url": "https://cloud.google.com/iam/docs/overview"
+    }
+  },
+  {
+    "id": "devops-009",
+    "question": {
+      "en": "A platform team wants to restrict which Google Cloud locations can host newly created resources. Which mechanism is the best fit?",
+      "es": "Un equipo de plataforma quiere restrict ¿Cuál Google Cloud locations puede host newly created recursos. ¿Cuál mechanism is the best fit?"
+    },
+    "options": [
+      {
+        "en": "An organization policy location constraint",
+        "es": "An organización política location constraint"
+      },
+      {
+        "en": "A Cloud Trace span filter",
+        "es": "A Cloud Trace span filter"
+      },
+      {
+        "en": "A Cloud Build trigger",
+        "es": "A Cloud compilación trigger"
+      },
+      {
+        "en": "A Kubernetes readiness probe",
+        "es": "A Kubernetes readiness probe"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Location constraints in Organization Policy can restrict resource placement by location.",
+      "es": "Location constraints en organización política puede restrict recurso placement by location."
+    },
+    "source": {
+      "title": "Organization Policy Service",
+      "url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview"
+    }
+  },
+  {
+    "id": "devops-010",
+    "question": {
+      "en": "An auditor asks why a user can access a resource through multiple paths. What should the team remember about standard IAM allow policies?",
+      "es": "An auditor asks ¿Por qué a user puede acceso a recurso mediante múltiples paths. ¿Qué debería the team remember about standard IAM Permite políticas?"
+    },
+    "options": [
+      {
+        "en": "They are subtractive and the last binding wins",
+        "es": "They are subtractive y the último binding wins"
+      },
+      {
+        "en": "They are additive, so matching grants contribute to effective access",
+        "es": "They are additive, so matching grants contribute para effective acceso"
+      },
+      {
+        "en": "They apply only to direct resource bindings",
+        "es": "They apply solo para direct recurso bindings"
+      },
+      {
+        "en": "They are evaluated only by Cloud Monitoring",
+        "es": "They are evaluated solo by Cloud monitoreo"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "IAM allow policies are additive across applicable bindings and hierarchy levels.",
+      "es": "IAM Permite políticas are additive entre applicable bindings y hierarchy levels."
+    },
+    "source": {
+      "title": "Google Cloud IAM overview",
+      "url": "https://cloud.google.com/iam/docs/overview"
+    }
+  },
+  {
+    "id": "devops-011",
+    "question": {
+      "en": "A workload running on Compute Engine needs to call Google Cloud APIs. Which identity should normally be attached to the VM?",
+      "es": "A carga de trabajo ejecutándose en Compute Engine necesita call APIs de Google Cloud. ¿Cuál identidad debería normally be asignada para the VM?"
+    },
+    "options": [
+      {
+        "en": "A human administrator account",
+        "es": "A humana administrator account"
+      },
+      {
+        "en": "A dedicated user-managed service account",
+        "es": "A dedicada user-managed cuenta de servicio"
+      },
+      {
+        "en": "A service account private key committed to Git",
+        "es": "Un servicio account private clave committed para Git"
+      },
+      {
+        "en": "The billing account",
+        "es": "The billing account"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "A dedicated user-managed service account gives the workload a controllable identity without using a human account.",
+      "es": "A dedicada user-managed cuenta de servicio gives the carga de trabajo a controllable identidad sin using a humana account."
+    },
+    "source": {
+      "title": "Service account best practices",
+      "url": "https://cloud.google.com/iam/docs/best-practices-service-accounts"
+    }
+  },
+  {
+    "id": "devops-012",
+    "question": {
+      "en": "A team is considering a long-lived service account key for a CI system. What is the preferred alternative when the CI provider supports OIDC?",
+      "es": "Un equipo is considering a de larga duración cuenta de servicio clave para a CI system. ¿Cuál es the preferred alternative when the CI provider admite OIDC?"
+    },
+    "options": [
+      {
+        "en": "Workload Identity Federation",
+        "es": "carga de trabajo identidad Federation"
+      },
+      {
+        "en": "A key stored in a public artifact",
+        "es": "A clave stored en a public artefacto"
+      },
+      {
+        "en": "A shared password",
+        "es": "A shared contraseña"
+      },
+      {
+        "en": "A permanent Owner binding",
+        "es": "A permanent Owner binding"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Workload Identity Federation exchanges external identity assertions for short-lived Google credentials without distributing long-lived keys.",
+      "es": "carga de trabajo identidad Federation exchanges external identidad assertions para de corta duración Google credentials sin distributing de larga duración claves."
+    },
+    "source": {
+      "title": "Workload Identity Federation",
+      "url": "https://cloud.google.com/iam/docs/workload-identity-federation"
+    }
+  },
+  {
+    "id": "devops-013",
+    "question": {
+      "en": "A service account is used by a production application. Which practice reduces blast radius?",
+      "es": "Un servicio account is used by a production aplicación. ¿Cuál practice reduce blast radius?"
+    },
+    "options": [
+      {
+        "en": "Give it Owner on every project",
+        "es": "Give it Owner en every proyecto"
+      },
+      {
+        "en": "Use a dedicated account with only required roles",
+        "es": "Usa a dedicada account con solo necesario roles"
+      },
+      {
+        "en": "Share it across unrelated applications",
+        "es": "Share it entre unrelated aplicaciones"
+      },
+      {
+        "en": "Create several unmanaged keys",
+        "es": "crear Varios unmanaged claves"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "Dedicated identities and narrowly scoped roles limit the impact of compromise or misconfiguration.",
+      "es": "dedicada identities y narrowly scoped roles limit the impact de compromise o misconfiguration."
+    },
+    "source": {
+      "title": "Service account best practices",
+      "url": "https://cloud.google.com/iam/docs/best-practices-service-accounts"
+    }
+  },
+  {
+    "id": "devops-014",
+    "question": {
+      "en": "A GKE workload must access a Google Cloud API without a JSON key. Which integration should the team configure?",
+      "es": "A GKE carga de trabajo debe acceso a Google Cloud API sin a JSON clave. ¿Cuál integration debería the team Configura?"
+    },
+    "options": [
+      {
+        "en": "Workload Identity Federation for GKE",
+        "es": "carga de trabajo identidad Federation para GKE"
+      },
+      {
+        "en": "A node-wide Owner role",
+        "es": "A nodo-wide Owner role"
+      },
+      {
+        "en": "A Kubernetes ConfigMap containing a private key",
+        "es": "A Kubernetes ConfigMap containing a private clave"
+      },
+      {
+        "en": "A public ingress IP",
+        "es": "A public ingress IP"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Workload Identity Federation for GKE maps Kubernetes identities to Google Cloud identities without node-wide keys.",
+      "es": "carga de trabajo identidad Federation para GKE maps Kubernetes identities para Google Cloud identities sin nodo-wide claves."
+    },
+    "source": {
+      "title": "Workload Identity Federation for GKE",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity"
+    }
+  },
+  {
+    "id": "devops-015",
+    "question": {
+      "en": "An external deployment system needs short-lived access to one project. What should the pool and provider configuration validate?",
+      "es": "An external despliegue system needs de corta duración acceso para uno proyecto. ¿Qué debería the pool y provider configuration validar?"
+    },
+    "options": [
+      {
+        "en": "The external assertion and its allowed attributes",
+        "es": "The external assertion y its allowed attributes"
+      },
+      {
+        "en": "Only the caller IP address",
+        "es": "solo the caller IP address"
+      },
+      {
+        "en": "The name of the Cloud Billing account",
+        "es": "The name de the Cloud Billing account"
+      },
+      {
+        "en": "The VM machine type",
+        "es": "The VM machine type"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Federation providers must validate external assertions and attribute conditions before issuing access.",
+      "es": "Federation providers debe validar external assertions y attribute conditions antes de issuing acceso."
+    },
+    "source": {
+      "title": "Workload Identity Federation",
+      "url": "https://cloud.google.com/iam/docs/workload-identity-federation"
+    }
+  },
+  {
+    "id": "devops-016",
+    "question": {
+      "en": "Where should an application store a database password that must be rotated independently from application code?",
+      "es": "¿Dónde debería an aplicación almacenar a database contraseña that debe be rotated independently desde aplicación code?"
+    },
+    "options": [
+      {
+        "en": "Secret Manager",
+        "es": "secreto Manager"
+      },
+      {
+        "en": "A Dockerfile",
+        "es": "A Dockerfile"
+      },
+      {
+        "en": "A Git tag",
+        "es": "A Git tag"
+      },
+      {
+        "en": "A public Cloud Storage bucket",
+        "es": "A public Cloud Storage bucket"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Secret Manager is designed to store, version, control access to, and rotate application secrets.",
+      "es": "secreto Manager está diseñado para almacenar, version, control acceso para, y rotate aplicación secretos."
+    },
+    "source": {
+      "title": "Secret Manager overview",
+      "url": "https://cloud.google.com/secret-manager/docs/overview"
+    }
+  },
+  {
+    "id": "devops-017",
+    "question": {
+      "en": "A team needs customer-managed encryption keys for data protected by a Google Cloud service. Which service manages those keys?",
+      "es": "Un equipo needs customer-managed encryption claves para data protected by a Google Cloud service. ¿Qué servicio manages those claves?"
+    },
+    "options": [
+      {
+        "en": "Cloud KMS",
+        "es": "Cloud KMS"
+      },
+      {
+        "en": "Cloud Trace",
+        "es": "Cloud Trace"
+      },
+      {
+        "en": "Cloud Deploy",
+        "es": "Cloud desplegar"
+      },
+      {
+        "en": "Cloud Scheduler",
+        "es": "Cloud Scheduler"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud KMS manages cryptographic keys used for customer-managed encryption and related controls.",
+      "es": "Cloud KMS manages cryptographic claves used para customer-managed encryption y related controls."
+    },
+    "source": {
+      "title": "Cloud KMS overview",
+      "url": "https://cloud.google.com/kms/docs"
+    }
+  },
+  {
+    "id": "devops-018",
+    "question": {
+      "en": "A security review finds a service account key in a source repository. What is the first remediation?",
+      "es": "A security Revisa finds a cuenta de servicio clave en a source repositorio. ¿Cuál es the primero remediation?"
+    },
+    "options": [
+      {
+        "en": "Rename the file",
+        "es": "Rename the file"
+      },
+      {
+        "en": "Revoke or disable the exposed key and rotate access",
+        "es": "Revoke o disable the exposed clave y rotate acceso"
+      },
+      {
+        "en": "Add a README warning",
+        "es": "Add a README warning"
+      },
+      {
+        "en": "Compress the repository",
+        "es": "Compress the repositorio"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "An exposed key must be invalidated quickly, then replaced with a safer authentication method and investigated.",
+      "es": "An exposed clave debe be invalidated quickly, then replaced con a safer authentication method y investigated."
+    },
+    "source": {
+      "title": "Service account best practices",
+      "url": "https://cloud.google.com/iam/docs/best-practices-service-accounts"
+    }
+  },
+  {
+    "id": "devops-019",
+    "question": {
+      "en": "A CI job needs to read one secret version. Which access pattern is most appropriate?",
+      "es": "A CI job necesita leer uno secreto version. ¿Cuál acceso pattern is most adecuado?"
+    },
+    "options": [
+      {
+        "en": "Grant Secret Manager Secret Accessor only on the required secret",
+        "es": "Concede secreto Manager secreto Accessor solo en the necesario secreto"
+      },
+      {
+        "en": "Grant Owner on the project",
+        "es": "Concede Owner en the proyecto"
+      },
+      {
+        "en": "Expose all secrets as build substitutions",
+        "es": "Expose todos los secretos as compilación substitutions"
+      },
+      {
+        "en": "Copy the secret into the image",
+        "es": "Copy the secreto into the imagen"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "A resource-scoped Secret Accessor grant limits the CI identity to the needed secret.",
+      "es": "A recurso-scoped secreto Accessor Concede limita the CI identidad para the needed secreto."
+    },
+    "source": {
+      "title": "Secret Manager overview",
+      "url": "https://cloud.google.com/secret-manager/docs/overview"
+    }
+  },
+  {
+    "id": "devops-020",
+    "question": {
+      "en": "A company wants to prevent teams from creating service account keys unless an exception is approved. Which control is most suitable?",
+      "es": "Una empresa quiere Impide teams desde creating cuenta de servicio claves unless an exception is approved. ¿Qué control es most suitable?"
+    },
+    "options": [
+      {
+        "en": "An organization policy constraint",
+        "es": "An organización política constraint"
+      },
+      {
+        "en": "A Cloud Trace filter",
+        "es": "A Cloud Trace filter"
+      },
+      {
+        "en": "A GKE Service object",
+        "es": "A GKE Service objeto"
+      },
+      {
+        "en": "A log-based metric",
+        "es": "A registro-based métrica"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Organization Policy can constrain service account key creation across an organization or folder.",
+      "es": "organización política puede constrain cuenta de servicio clave creation entre an organización o folder."
+    },
+    "source": {
+      "title": "Organization Policy Service",
+      "url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview"
+    }
+  },
+  {
+    "id": "devops-021",
+    "question": {
+      "en": "A Cloud Build pipeline should run whenever a pull request is opened against a protected branch. What should trigger the build?",
+      "es": "A Cloud compilación canalización debería run whenever a pull solicitud is opened against a protected rama. ¿Qué debería trigger the compilación?"
+    },
+    "options": [
+      {
+        "en": "A repository event trigger for pull requests",
+        "es": "A repositorio event trigger para pull solicitudes"
+      },
+      {
+        "en": "A VM startup script",
+        "es": "A VM startup script"
+      },
+      {
+        "en": "A billing export",
+        "es": "A billing export"
+      },
+      {
+        "en": "A manual DNS change",
+        "es": "A manual DNS change"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Build repository triggers can start builds from source control events such as pull requests.",
+      "es": "Cloud compilación repositorio triggers puede start builds desde source control events such as pull solicitudes."
+    },
+    "source": {
+      "title": "Cloud Build triggers",
+      "url": "https://cloud.google.com/build/docs/automating-builds/create-build-triggers"
+    }
+  },
+  {
+    "id": "devops-022",
+    "question": {
+      "en": "Several Cloud Build steps need to exchange files. Where can they share files during one build?",
+      "es": "Varios Cloud compilación steps need para exchange files. ¿Dónde puede they share files durante uno compilación?"
+    },
+    "options": [
+      {
+        "en": "The /workspace directory",
+        "es": "The /workspace directory"
+      },
+      {
+        "en": "A developer laptop only",
+        "es": "Un desarrollador laptop solo"
+      },
+      {
+        "en": "The Cloud Monitoring metric store",
+        "es": "The Cloud monitoreo métrica almacenar"
+      },
+      {
+        "en": "A DNS zone",
+        "es": "A DNS zona"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Build makes /workspace available to build steps so files can persist between containers in the build.",
+      "es": "Cloud compilación makes /workspace disponible para compilación steps so files puede persist between contenedores en the compilación."
+    },
+    "source": {
+      "title": "Cloud Build overview",
+      "url": "https://cloud.google.com/build/docs/overview"
+    }
+  },
+  {
+    "id": "devops-023",
+    "question": {
+      "en": "A build must produce the same artifact regardless of the mutable source tag used later. Which image reference is best for deployment?",
+      "es": "A compilación debe produce the mismo artefacto regardless de the mutable source tag used later. ¿Cuál imagen reference is best para despliegue?"
+    },
+    "options": [
+      {
+        "en": "A floating latest tag",
+        "es": "A floating latest tag"
+      },
+      {
+        "en": "An immutable image digest",
+        "es": "An immutable imagen digest"
+      },
+      {
+        "en": "A random local image name",
+        "es": "A random local imagen name"
+      },
+      {
+        "en": "A branch name only",
+        "es": "A rama name solo"
+      }
+    ],
+    "correctOption": 1,
+    "explanation": {
+      "en": "A digest identifies the exact image content and avoids tag mutation changing the deployed artifact.",
+      "es": "A digest identifies the exact imagen content y avoids tag mutation changing the deployed artefacto."
+    },
+    "source": {
+      "title": "Artifact Registry overview",
+      "url": "https://cloud.google.com/artifact-registry/docs/overview"
+    }
+  },
+  {
+    "id": "devops-024",
+    "question": {
+      "en": "A team wants Cloud Build to use a custom build container with a specific compiler version. What is a suitable pattern?",
+      "es": "Un equipo wants Cloud compilación para Usa a custom compilación contenedor con a específico compiler version. ¿Cuál es a suitable pattern?"
+    },
+    "options": [
+      {
+        "en": "Run the compiler in a custom build step image",
+        "es": "Run the compiler en a custom compilación step imagen"
+      },
+      {
+        "en": "Install it manually on every developer laptop only",
+        "es": "Install it manually en every developer laptop solo"
+      },
+      {
+        "en": "Store the compiler password in the image",
+        "es": "almacenar the compiler contraseña en the imagen"
+      },
+      {
+        "en": "Use Cloud Monitoring as the compiler",
+        "es": "Usa Cloud monitoreo as the compiler"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Build steps can execute tools from purpose-built container images.",
+      "es": "Cloud compilación steps puede execute tools desde purpose-built contenedor imágenes."
+    },
+    "source": {
+      "title": "Cloud Build overview",
+      "url": "https://cloud.google.com/build/docs/overview"
+    }
+  },
+  {
+    "id": "devops-025",
+    "question": {
+      "en": "A production build should require a human approval before it runs. Which Cloud Build capability can enforce this workflow?",
+      "es": "Una producción compilación debería require a humana approval antes de it runs. ¿Cuál Cloud compilación capability puede enforce this workflow?"
+    },
+    "options": [
+      {
+        "en": "A trigger approval requirement",
+        "es": "A trigger approval requirement"
+      },
+      {
+        "en": "A Kubernetes liveness probe",
+        "es": "A Kubernetes liveness probe"
+      },
+      {
+        "en": "A Storage lifecycle rule",
+        "es": "A Storage lifecycle rule"
+      },
+      {
+        "en": "A Trace sampling rate",
+        "es": "A Trace sampling tasa"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Build triggers can be configured to require approval before execution.",
+      "es": "Cloud compilación triggers puede be configured para require approval antes de execution."
+    },
+    "source": {
+      "title": "Cloud Build triggers",
+      "url": "https://cloud.google.com/build/docs/automating-builds/create-build-triggers"
+    }
+  },
+  {
+    "id": "devops-026",
+    "question": {
+      "en": "A pipeline must build an image, run tests, and push only when tests succeed. How should the steps be arranged?",
+      "es": "Una canalización debe compilación an imagen, run pruebas, y push solo when pruebas succeed. ¿Cómo debería the steps be arranged?"
+    },
+    "options": [
+      {
+        "en": "Make the push step depend on successful test steps",
+        "es": "Make the push step depend en successful test steps"
+      },
+      {
+        "en": "Push first and test after deployment",
+        "es": "Push primero y test después de despliegue"
+      },
+      {
+        "en": "Run every step independently and ignore status",
+        "es": "Run every step independently y ignore status"
+      },
+      {
+        "en": "Put the tests in a billing export",
+        "es": "Put the pruebas en a billing export"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Build step dependencies and exit status can prevent publishing an artifact after failed tests.",
+      "es": "Cloud compilación step dependencies y exit status puede Impide publishing an artefacto después de failed pruebas."
+    },
+    "source": {
+      "title": "Cloud Build overview",
+      "url": "https://cloud.google.com/build/docs/overview"
+    }
+  },
+  {
+    "id": "devops-027",
+    "question": {
+      "en": "A team wants to avoid putting credentials directly into a cloudbuild.yaml file. Which pattern is safer?",
+      "es": "Un equipo quiere avoid putting credentials directly into a cloudbuild.yaml file. ¿Cuál pattern is safer?"
+    },
+    "options": [
+      {
+        "en": "Use Secret Manager and grant the build identity limited access",
+        "es": "Usa secreto Manager y Concede the compilación identidad limited acceso"
+      },
+      {
+        "en": "Base64-encode the password in YAML",
+        "es": "Base64-encode the contraseña en YAML"
+      },
+      {
+        "en": "Put the password in a comment",
+        "es": "Put the contraseña en a comment"
+      },
+      {
+        "en": "Use the source branch name as the password",
+        "es": "Usa the source rama name as the contraseña"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Secret Manager keeps secret material separate from configuration and allows IAM-controlled access.",
+      "es": "secreto Manager keeps secreto material separate desde configuration y permite IAM-controlled acceso."
+    },
+    "source": {
+      "title": "Secret Manager overview",
+      "url": "https://cloud.google.com/secret-manager/docs/overview"
+    }
+  },
+  {
+    "id": "devops-028",
+    "question": {
+      "en": "A Cloud Build trigger must run only when files under services/api change. What should the team configure?",
+      "es": "A Cloud compilación trigger debe run solo when files under services/api change. ¿Qué debería the team Configura?"
+    },
+    "options": [
+      {
+        "en": "An included-files filter",
+        "es": "An included-files filter"
+      },
+      {
+        "en": "A larger machine type",
+        "es": "A larger machine type"
+      },
+      {
+        "en": "A Cloud Storage retention policy",
+        "es": "A Cloud Storage retention política"
+      },
+      {
+        "en": "A GKE node taint",
+        "es": "A GKE nodo taint"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Trigger file filters limit builds to relevant repository changes.",
+      "es": "Trigger file filters limit builds para relevant repositorio cambios."
+    },
+    "source": {
+      "title": "Cloud Build triggers",
+      "url": "https://cloud.google.com/build/docs/automating-builds/create-build-triggers"
+    }
+  },
+  {
+    "id": "devops-029",
+    "question": {
+      "en": "A build uses a substitution variable for the commit identifier. What is the main benefit of using it in an image tag?",
+      "es": "A compilación uses a substitution variable para the commit identifier. ¿Cuál es the main benefit de using it en an imagen tag?"
+    },
+    "options": [
+      {
+        "en": "It ties the artifact to the source revision",
+        "es": "It ties the artefacto para the revisión de código"
+      },
+      {
+        "en": "It grants the image IAM access",
+        "es": "It grants the imagen IAM acceso"
+      },
+      {
+        "en": "It encrypts the image automatically",
+        "es": "It encrypts the imagen automatically"
+      },
+      {
+        "en": "It makes the image immutable by itself",
+        "es": "It makes the imagen immutable by itself"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "A commit-based tag improves traceability between source and artifact, although a digest is still the immutable reference.",
+      "es": "A commit-based tag mejora traceability between source y artefacto, although a digest is still the immutable reference."
+    },
+    "source": {
+      "title": "Cloud Build overview",
+      "url": "https://cloud.google.com/build/docs/overview"
+    }
+  },
+  {
+    "id": "devops-030",
+    "question": {
+      "en": "A team wants to run Terraform validation in Cloud Build before applying infrastructure. Which sequence is safest?",
+      "es": "Un equipo quiere run Terraform validation en Cloud compilación antes de applying infrastructure. ¿Cuál sequence is safest?"
+    },
+    "options": [
+      {
+        "en": "Format and validate, plan, review, then apply",
+        "es": "Format y validar, plan, Revisa, then apply"
+      },
+      {
+        "en": "Apply first, then run format",
+        "es": "Apply primero, then run format"
+      },
+      {
+        "en": "Delete the state file before every plan",
+        "es": "Delete the state file antes de every plan"
+      },
+      {
+        "en": "Run only a local syntax check",
+        "es": "Run solo a local syntax check"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Validation and a reviewed plan should precede an apply operation.",
+      "es": "Validation y a reviewed plan debería precede an apply operation."
+    },
+    "source": {
+      "title": "Terraform on Google Cloud",
+      "url": "https://cloud.google.com/docs/terraform"
+    }
+  },
+  {
+    "id": "devops-031",
+    "question": {
+      "en": "What is the main role of Artifact Registry in a delivery pipeline?",
+      "es": "¿Cuál es the main role de artefacto Registry en a delivery canalización?"
+    },
+    "options": [
+      {
+        "en": "Store and manage build artifacts such as container images",
+        "es": "almacenar y manage compilación artefactos such as contenedor imágenes"
+      },
+      {
+        "en": "Replace IAM policy evaluation",
+        "es": "Replace IAM política evaluation"
+      },
+      {
+        "en": "Provide end-user authentication",
+        "es": "Provide end-user authentication"
+      },
+      {
+        "en": "Collect distributed traces",
+        "es": "Collect distributed traces"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Artifact Registry stores versioned packages and container images for delivery workflows.",
+      "es": "artefacto Registry stores versioned packages y contenedor imágenes para delivery workflows."
+    },
+    "source": {
+      "title": "Artifact Registry overview",
+      "url": "https://cloud.google.com/artifact-registry/docs/overview"
+    }
+  },
+  {
+    "id": "devops-032",
+    "question": {
+      "en": "A pipeline should prevent deployment of an image unless it has an approved attestation. Which service is designed for admission control?",
+      "es": "Una canalización debería Impide despliegue de an imagen unless it has an approved attestation. ¿Qué servicio is designed para admission control?"
+    },
+    "options": [
+      {
+        "en": "Binary Authorization",
+        "es": "Binary Authorization"
+      },
+      {
+        "en": "Cloud Scheduler",
+        "es": "Cloud Scheduler"
+      },
+      {
+        "en": "Cloud NAT",
+        "es": "Cloud NAT"
+      },
+      {
+        "en": "Cloud Profiler",
+        "es": "Cloud Profiler"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Binary Authorization evaluates deployment policies and attestations for supported runtimes.",
+      "es": "Binary Authorization evaluates despliegue políticas y attestations para supported runtimes."
+    },
+    "source": {
+      "title": "Binary Authorization overview",
+      "url": "https://cloud.google.com/binary-authorization/docs/overview"
+    }
+  },
+  {
+    "id": "devops-033",
+    "question": {
+      "en": "A deployment policy should require a vulnerability scan result before release. Which supply-chain sequence is appropriate?",
+      "es": "A despliegue política debería require a vulnerability scan result antes de versión. ¿Cuál supply-chain sequence is adecuado?"
+    },
+    "options": [
+      {
+        "en": "Build, scan, attest when policy passes, then enforce at deployment",
+        "es": "compilación, scan, attest when política passes, then enforce at despliegue"
+      },
+      {
+        "en": "Deploy first and scan production later",
+        "es": "desplegar primero y scan production later"
+      },
+      {
+        "en": "Store the scan result only in a local file",
+        "es": "almacenar the scan result solo en a local file"
+      },
+      {
+        "en": "Disable image metadata",
+        "es": "Disable imagen metadata"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Scanning and attestations create evidence that an admission policy can enforce.",
+      "es": "Scanning y attestations crear evidence that an admission política puede enforce."
+    },
+    "source": {
+      "title": "Binary Authorization overview",
+      "url": "https://cloud.google.com/binary-authorization/docs/overview"
+    }
+  },
+  {
+    "id": "devops-034",
+    "question": {
+      "en": "A team needs a managed service to promote releases through test, staging, and production targets. Which service fits?",
+      "es": "Un equipo needs a managed service para promote releases mediante test, staging, y production targets. ¿Qué servicio fits?"
+    },
+    "options": [
+      {
+        "en": "Cloud Deploy",
+        "es": "Cloud desplegar"
+      },
+      {
+        "en": "Cloud DNS",
+        "es": "Cloud DNS"
+      },
+      {
+        "en": "Cloud KMS",
+        "es": "Cloud KMS"
+      },
+      {
+        "en": "Cloud Logging",
+        "es": "Cloud Logging"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Deploy manages continuous delivery pipelines and controlled promotion across targets.",
+      "es": "Cloud desplegar manages continuous delivery pipelines y controlled promotion entre targets."
+    },
+    "source": {
+      "title": "Cloud Deploy overview",
+      "url": "https://cloud.google.com/deploy/docs/overview"
+    }
+  },
+  {
+    "id": "devops-035",
+    "question": {
+      "en": "A Cloud Deploy release is promoted from staging to production. What does promotion primarily change?",
+      "es": "A Cloud desplegar versión is promoted desde staging para production. ¿Qué does promotion primarily change?"
+    },
+    "options": [
+      {
+        "en": "The target environment receiving the release",
+        "es": "The destino entorno receiving the versión"
+      },
+      {
+        "en": "The source code commit history",
+        "es": "The source code commit history"
+      },
+      {
+        "en": "The project billing account",
+        "es": "The proyecto billing account"
+      },
+      {
+        "en": "The service account password",
+        "es": "The cuenta de servicio contraseña"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Promotion advances a release through the configured delivery pipeline targets.",
+      "es": "Promotion advances a versión mediante the configured delivery canalización targets."
+    },
+    "source": {
+      "title": "Cloud Deploy overview",
+      "url": "https://cloud.google.com/deploy/docs/overview"
+    }
+  },
+  {
+    "id": "devops-036",
+    "question": {
+      "en": "A team wants to separate rendering a deployment manifest from applying it to a target. Which delivery concept supports this?",
+      "es": "Un equipo quiere separate rendering a despliegue manifest desde applying it para a destino. ¿Cuál delivery concept admite this?"
+    },
+    "options": [
+      {
+        "en": "A release and its rollout stages",
+        "es": "A versión y its rollout stages"
+      },
+      {
+        "en": "A firewall rule and a route",
+        "es": "A firewall rule y a route"
+      },
+      {
+        "en": "A log sink and a metric",
+        "es": "A registro sink y a métrica"
+      },
+      {
+        "en": "A secret and a key ring",
+        "es": "A secreto y a clave ring"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Deploy models releases and rollouts so delivery can be controlled by target and stage.",
+      "es": "Cloud desplegar models releases y rollouts so delivery puede be controlled by destino y stage."
+    },
+    "source": {
+      "title": "Cloud Deploy overview",
+      "url": "https://cloud.google.com/deploy/docs/overview"
+    }
+  },
+  {
+    "id": "devops-037",
+    "question": {
+      "en": "A container image is built once and must be promoted unchanged across environments. Which practice is best?",
+      "es": "A contenedor imagen is built once y debe be promoted unchanged entre environments. ¿Cuál practice is best?"
+    },
+    "options": [
+      {
+        "en": "Promote the same immutable digest",
+        "es": "Promote the mismo immutable digest"
+      },
+      {
+        "en": "Rebuild from the latest branch for every environment",
+        "es": "Rebuild desde the latest rama para every entorno"
+      },
+      {
+        "en": "Use a different mutable tag per environment",
+        "es": "Usa a diferente mutable tag per entorno"
+      },
+      {
+        "en": "Modify the image manually in production",
+        "es": "modificar the imagen manually en production"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Promoting one immutable artifact reduces environment drift and improves provenance.",
+      "es": "Promoting uno immutable artefacto reduce entorno drift y mejora provenance."
+    },
+    "source": {
+      "title": "Artifact Registry overview",
+      "url": "https://cloud.google.com/artifact-registry/docs/overview"
+    }
+  },
+  {
+    "id": "devops-038",
+    "question": {
+      "en": "A pipeline needs to connect an external Git provider to Cloud Build without storing a personal access token in source. Which general approach is preferred?",
+      "es": "Una canalización necesita connect an external Git provider para Cloud compilación sin storing a personal acceso token en source. ¿Cuál general approach is preferred?"
+    },
+    "options": [
+      {
+        "en": "Use the supported repository connection and managed trigger integration",
+        "es": "Usa the supported repositorio connection y managed trigger integration"
+      },
+      {
+        "en": "Commit the token to the repository",
+        "es": "Commit the token para the repositorio"
+      },
+      {
+        "en": "Put the token in a Docker label",
+        "es": "Put the token en a Docker label"
+      },
+      {
+        "en": "Use a public webhook secret",
+        "es": "Usa a public webhook secreto"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Managed repository integrations reduce credential exposure and support trigger-based automation.",
+      "es": "Managed repositorio integrations reduce credential exposure y support trigger-based automation."
+    },
+    "source": {
+      "title": "Cloud Build triggers",
+      "url": "https://cloud.google.com/build/docs/automating-builds/create-build-triggers"
+    }
+  },
+  {
+    "id": "devops-039",
+    "question": {
+      "en": "What does infrastructure as code primarily provide?",
+      "es": "¿Qué does infrastructure as code primarily provide?"
+    },
+    "options": [
+      {
+        "en": "Declarative, repeatable management of infrastructure configuration",
+        "es": "Declarative, repeatable management de infrastructure configuration"
+      },
+      {
+        "en": "A replacement for application unit tests",
+        "es": "A replacement para aplicación unit pruebas"
+      },
+      {
+        "en": "A way to bypass IAM",
+        "es": "A way para bypass IAM"
+      },
+      {
+        "en": "A guarantee that every change is risk-free",
+        "es": "A guarantee that every change is risk-free"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Infrastructure as code makes infrastructure definitions reviewable, repeatable, and automatable.",
+      "es": "Infrastructure as code makes infrastructure definitions reviewable, repeatable, y automatable."
+    },
+    "source": {
+      "title": "Terraform on Google Cloud",
+      "url": "https://cloud.google.com/docs/terraform"
+    }
+  },
+  {
+    "id": "devops-040",
+    "question": {
+      "en": "A Terraform plan shows an unexpected production database replacement. What should happen before apply?",
+      "es": "A Terraform plan shows an unexpected production database replacement. ¿Qué debería happen antes de apply?"
+    },
+    "options": [
+      {
+        "en": "Stop and review the plan and state before approving it",
+        "es": "Stop y Revisa the plan y state antes de approving it"
+      },
+      {
+        "en": "Apply immediately to refresh the state",
+        "es": "Apply immediately para refresh the state"
+      },
+      {
+        "en": "Delete the state to hide the change",
+        "es": "Delete the state para hide the change"
+      },
+      {
+        "en": "Grant Terraform Owner permanently",
+        "es": "Concede Terraform Owner permanently"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Unexpected destructive changes require review and correction before apply.",
+      "es": "Unexpected destructive cambios require Revisa y correction antes de apply."
+    },
+    "source": {
+      "title": "Terraform on Google Cloud",
+      "url": "https://cloud.google.com/docs/terraform"
+    }
+  },
+  {
+    "id": "devops-041",
+    "question": {
+      "en": "A GKE cluster must prevent unsigned images from running. Which control should be enforced at admission?",
+      "es": "A GKE clúster debe Impide unsigned imágenes desde ejecutándose. ¿Cuál control debería be enforced at admission?"
+    },
+    "options": [
+      {
+        "en": "Binary Authorization",
+        "es": "Binary Authorization"
+      },
+      {
+        "en": "A readiness probe",
+        "es": "A readiness probe"
+      },
+      {
+        "en": "A ConfigMap",
+        "es": "A ConfigMap"
+      },
+      {
+        "en": "A Kubernetes Service type",
+        "es": "A Kubernetes Service type"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Binary Authorization can enforce image deployment policies at admission.",
+      "es": "Binary Authorization puede enforce imagen despliegue políticas at admission."
+    },
+    "source": {
+      "title": "Binary Authorization overview",
+      "url": "https://cloud.google.com/binary-authorization/docs/overview"
+    }
+  },
+  {
+    "id": "devops-042",
+    "question": {
+      "en": "A Kubernetes workload needs a Google Cloud identity per application rather than one identity for every node. What should be used?",
+      "es": "A Kubernetes carga de trabajo needs a Google Cloud identidad per aplicación rather than uno identidad para every nodo. ¿Qué debería be used?"
+    },
+    "options": [
+      {
+        "en": "Workload Identity Federation for GKE",
+        "es": "carga de trabajo identidad Federation para GKE"
+      },
+      {
+        "en": "The node service account for all pods",
+        "es": "The nodo cuenta de servicio para todos los pods"
+      },
+      {
+        "en": "A shared JSON key in every pod",
+        "es": "A shared JSON clave en every pod"
+      },
+      {
+        "en": "A public service account email without IAM",
+        "es": "A public cuenta de servicio email sin IAM"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Workload identity maps pod identities to Google Cloud service accounts with narrower scope.",
+      "es": "carga de trabajo identidad maps pod identities para Google Cloud cuenta de servicios con narrower scope."
+    },
+    "source": {
+      "title": "Workload Identity Federation for GKE",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity"
+    }
+  },
+  {
+    "id": "devops-043",
+    "question": {
+      "en": "A pod must read one Secret Manager secret. Which design is most appropriate?",
+      "es": "A pod debe leer uno secreto Manager secreto. ¿Cuál design is most adecuado?"
+    },
+    "options": [
+      {
+        "en": "Bind its Google identity only to that secret and access it through the API",
+        "es": "Bind its Google identidad solo para that secreto y acceso it mediante the API"
+      },
+      {
+        "en": "Grant the node Editor on the project",
+        "es": "Concede the nodo Editor en the proyecto"
+      },
+      {
+        "en": "Bake the secret into the container",
+        "es": "Bake the secreto into the contenedor"
+      },
+      {
+        "en": "Expose the secret in a public ConfigMap",
+        "es": "Expose the secreto en a public ConfigMap"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "The workload identity should receive only the secret access it needs.",
+      "es": "The carga de trabajo identidad debería receive solo the secreto acceso it needs."
+    },
+    "source": {
+      "title": "Secret Manager overview",
+      "url": "https://cloud.google.com/secret-manager/docs/overview"
+    }
+  },
+  {
+    "id": "devops-044",
+    "question": {
+      "en": "A GKE application needs to scale based on request rate rather than CPU alone. What should the team evaluate?",
+      "es": "A GKE aplicación necesita scale based en solicitud tasa rather than CPU alone. ¿Qué debería the team evaluate?"
+    },
+    "options": [
+      {
+        "en": "A custom metric exposed through the Kubernetes metrics path",
+        "es": "A custom métrica exposed mediante the Kubernetes métricas path"
+      },
+      {
+        "en": "A Cloud Storage lifecycle rule",
+        "es": "A Cloud Storage lifecycle rule"
+      },
+      {
+        "en": "A DNS TXT record",
+        "es": "A DNS TXT record"
+      },
+      {
+        "en": "A service account key rotation job",
+        "es": "Un servicio account clave rotation job"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Horizontal Pod Autoscaling can use suitable custom or external metrics when configured correctly.",
+      "es": "Horizontal pod Autoscaling puede Usa suitable custom o external métricas when configured correctly."
+    },
+    "source": {
+      "title": "Horizontal Pod autoscaling",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/horizontalpodautoscaler"
+    }
+  },
+  {
+    "id": "devops-045",
+    "question": {
+      "en": "A GKE cluster must run workloads in multiple zones to reduce zonal failure impact. Which cluster design should be considered?",
+      "es": "A GKE clúster debe run cargas de trabajo en múltiples zonas para reduce zonal fallo impact. ¿Cuál clúster design debería be considered?"
+    },
+    "options": [
+      {
+        "en": "A regional cluster",
+        "es": "Una aplicación regional clúster"
+      },
+      {
+        "en": "A single-zone cluster only",
+        "es": "A único-zona clúster solo"
+      },
+      {
+        "en": "A local laptop cluster",
+        "es": "A local laptop clúster"
+      },
+      {
+        "en": "A Cloud Storage bucket",
+        "es": "A Cloud Storage bucket"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Regional GKE clusters distribute control plane and nodes across zones in a region.",
+      "es": "Regional GKE clústeres distribute control plane y nodos entre zonas en a región."
+    },
+    "source": {
+      "title": "Google Kubernetes Engine overview",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview"
+    }
+  },
+  {
+    "id": "devops-046",
+    "question": {
+      "en": "A Kubernetes Service should expose an application internally within the cluster. Which Service type is the usual choice?",
+      "es": "A Kubernetes Service debería expose an aplicación internally within the clúster. ¿Cuál Service type is the usual choice?"
+    },
+    "options": [
+      {
+        "en": "ClusterIP",
+        "es": "ClusterIP"
+      },
+      {
+        "en": "LoadBalancer",
+        "es": "LoadBalancer"
+      },
+      {
+        "en": "ExternalName with a public address",
+        "es": "ExternalName con a public address"
+      },
+      {
+        "en": "NodePort for every public client",
+        "es": "NodePort para every public client"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "ClusterIP provides an internal virtual IP for cluster consumers.",
+      "es": "ClusterIP proporciona an internal virtual IP para clúster consumers."
+    },
+    "source": {
+      "title": "Google Kubernetes Engine overview",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview"
+    }
+  },
+  {
+    "id": "devops-047",
+    "question": {
+      "en": "A team wants Kubernetes to restart a container that is alive but unable to serve traffic. Which probe is intended for this?",
+      "es": "Un equipo wants Kubernetes para restart a contenedor that is alive but unable para serve tráfico. ¿Cuál probe is intended para this?"
+    },
+    "options": [
+      {
+        "en": "A liveness probe",
+        "es": "A liveness probe"
+      },
+      {
+        "en": "A startup image tag",
+        "es": "A startup imagen tag"
+      },
+      {
+        "en": "A Cloud Build trigger",
+        "es": "A Cloud compilación trigger"
+      },
+      {
+        "en": "A node label only",
+        "es": "A nodo label solo"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "A liveness probe indicates whether a container should be restarted.",
+      "es": "A liveness probe indicates whether a contenedor debería be restarted."
+    },
+    "source": {
+      "title": "Google Kubernetes Engine overview",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview"
+    }
+  },
+  {
+    "id": "devops-048",
+    "question": {
+      "en": "A team wants Kubernetes to remove a pod from service endpoints while it warms up. Which probe is most relevant?",
+      "es": "Un equipo wants Kubernetes para remove a pod desde service endpoints while it warms up. ¿Cuál probe is most relevant?"
+    },
+    "options": [
+      {
+        "en": "A readiness probe",
+        "es": "A readiness probe"
+      },
+      {
+        "en": "A liveness probe only",
+        "es": "A liveness probe solo"
+      },
+      {
+        "en": "A billing alert",
+        "es": "A billing alert"
+      },
+      {
+        "en": "A Cloud Deploy release",
+        "es": "A Cloud desplegar versión"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Readiness controls whether a pod is considered ready to receive traffic.",
+      "es": "Readiness controls whether a pod is considered ready para receive tráfico."
+    },
+    "source": {
+      "title": "Google Kubernetes Engine overview",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview"
+    }
+  },
+  {
+    "id": "devops-049",
+    "question": {
+      "en": "A stateless web service has unpredictable traffic and should scale to zero when idle. Which runtime is a strong fit?",
+      "es": "A stateless web service has unpredictable tráfico y debería scale para zero when idle. ¿Cuál runtime is a strong fit?"
+    },
+    "options": [
+      {
+        "en": "Cloud Run",
+        "es": "Cloud Run"
+      },
+      {
+        "en": "A single permanently running VM",
+        "es": "A único permanently ejecutándose VM"
+      },
+      {
+        "en": "Cloud Storage only",
+        "es": "Cloud Storage solo"
+      },
+      {
+        "en": "Cloud KMS",
+        "es": "Cloud KMS"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Run is a managed container runtime that can scale based on requests and to zero.",
+      "es": "Cloud Run is a managed contenedor runtime that puede scale based en solicitudes y para zero."
+    },
+    "source": {
+      "title": "Cloud Run overview",
+      "url": "https://cloud.google.com/run/docs/overview"
+    }
+  },
+  {
+    "id": "devops-050",
+    "question": {
+      "en": "A Cloud Run service must not receive traffic from the public internet. Which control should be evaluated first?",
+      "es": "A Cloud Run service debe not receive tráfico desde the public internet. ¿Cuál control debería be evaluated primero?"
+    },
+    "options": [
+      {
+        "en": "Ingress and authentication configuration",
+        "es": "Ingress y authentication configuration"
+      },
+      {
+        "en": "A container image label",
+        "es": "A contenedor imagen label"
+      },
+      {
+        "en": "A source code comment",
+        "es": "A source code comment"
+      },
+      {
+        "en": "A local hosts file",
+        "es": "A local hosts file"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Run ingress and IAM authentication determine how callers can reach the service.",
+      "es": "Cloud Run ingress y IAM authentication determine ¿Cómo callers puede reach the service."
+    },
+    "source": {
+      "title": "Cloud Run overview",
+      "url": "https://cloud.google.com/run/docs/overview"
+    }
+  },
+  {
+    "id": "devops-051",
+    "question": {
+      "en": "A Compute Engine application needs self-healing after an instance becomes unhealthy. Which architecture is designed for this?",
+      "es": "A Compute Engine aplicación needs self-healing después de an instancia becomes unhealthy. ¿Cuál architecture is designed para this?"
+    },
+    "options": [
+      {
+        "en": "A managed instance group with health checks",
+        "es": "A managed instancia group con salud checks"
+      },
+      {
+        "en": "A standalone unmanaged disk",
+        "es": "A standalone unmanaged disk"
+      },
+      {
+        "en": "A Cloud Storage bucket",
+        "es": "A Cloud Storage bucket"
+      },
+      {
+        "en": "A log sink only",
+        "es": "A registro sink solo"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Managed instance groups can recreate unhealthy instances using health checks and an instance template.",
+      "es": "Managed instancia groups puede recreate unhealthy instancias using salud checks y an instancia template."
+    },
+    "source": {
+      "title": "Managed instance groups",
+      "url": "https://cloud.google.com/compute/docs/instance-groups"
+    }
+  },
+  {
+    "id": "devops-052",
+    "question": {
+      "en": "A managed instance group must distribute instances across zones in one region. Which design should be selected?",
+      "es": "A managed instancia group debe distribute instancias entre zonas en uno región. ¿Cuál design debería be selected?"
+    },
+    "options": [
+      {
+        "en": "A regional managed instance group",
+        "es": "Una aplicación regional managed instancia group"
+      },
+      {
+        "en": "A zonal MIG in one zone",
+        "es": "A zonal MIG en uno zona"
+      },
+      {
+        "en": "A single VM with a startup script",
+        "es": "A único VM con a startup script"
+      },
+      {
+        "en": "A global Cloud Storage bucket",
+        "es": "A global Cloud Storage bucket"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Regional managed instance groups distribute instances across zones for resilience.",
+      "es": "Regional managed instancia groups distribute instancias entre zonas para resilience."
+    },
+    "source": {
+      "title": "Managed instance groups",
+      "url": "https://cloud.google.com/compute/docs/instance-groups"
+    }
+  },
+  {
+    "id": "devops-053",
+    "question": {
+      "en": "A MIG autoscaler should add instances when average CPU exceeds a target. What does the autoscaler need?",
+      "es": "A MIG autoscaler debería add instancias when promedio CPU exceeds a destino. ¿Qué does the autoscaler need?"
+    },
+    "options": [
+      {
+        "en": "An instance group and a configured autoscaling policy",
+        "es": "An instancia group y a configured autoscaling política"
+      },
+      {
+        "en": "A Cloud DNS record only",
+        "es": "A Cloud DNS record solo"
+      },
+      {
+        "en": "A manual SSH session",
+        "es": "A manual SSH session"
+      },
+      {
+        "en": "A log exclusion",
+        "es": "A registro exclusion"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Compute autoscaling uses a managed group and policy signals such as average CPU.",
+      "es": "Compute autoscaling uses a managed group y política signals such as promedio CPU."
+    },
+    "source": {
+      "title": "Compute Engine autoscaling",
+      "url": "https://cloud.google.com/compute/docs/autoscaler"
+    }
+  },
+  {
+    "id": "devops-054",
+    "question": {
+      "en": "A service has a long initialization time. What should be considered when configuring autoscaling?",
+      "es": "Un servicio has a long initialization time. ¿Qué debería be considered when configuring autoscaling?"
+    },
+    "options": [
+      {
+        "en": "Cooldown or initialization behavior so new capacity can warm up",
+        "es": "Cooldown o initialization behavior so nuevo capacity puede warm up"
+      },
+      {
+        "en": "A zero-second health check timeout",
+        "es": "A zero-second salud check timeout"
+      },
+      {
+        "en": "Disabling all health checks",
+        "es": "Disabling todos los salud checks"
+      },
+      {
+        "en": "Using an image tag as a metric",
+        "es": "Using an imagen tag as a métrica"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Autoscaling should account for startup time to avoid overreacting before new instances are ready.",
+      "es": "Autoscaling debería account para startup time para avoid overreacting antes de nuevo instancias are ready."
+    },
+    "source": {
+      "title": "Compute Engine autoscaling",
+      "url": "https://cloud.google.com/compute/docs/autoscaler"
+    }
+  },
+  {
+    "id": "devops-055",
+    "question": {
+      "en": "A global HTTP service needs traffic routed to healthy regional backends. Which service provides the front door?",
+      "es": "A global HTTP service needs tráfico routed para healthy regional backends. ¿Qué servicio proporciona the front door?"
+    },
+    "options": [
+      {
+        "en": "A global external Application Load Balancer",
+        "es": "A global external aplicación Load Balancer"
+      },
+      {
+        "en": "A local firewall rule",
+        "es": "A local firewall rule"
+      },
+      {
+        "en": "A VM serial console",
+        "es": "A VM serial console"
+      },
+      {
+        "en": "A service account",
+        "es": "Un servicio account"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Global external application load balancing can route HTTP traffic to healthy backends.",
+      "es": "Global external aplicación load balancing puede route HTTP tráfico para healthy backends."
+    },
+    "source": {
+      "title": "Cloud Load Balancing overview",
+      "url": "https://cloud.google.com/load-balancing/docs/load-balancing-overview"
+    }
+  },
+  {
+    "id": "devops-056",
+    "question": {
+      "en": "A team wants a private Google API connection from VPC workloads without assigning external IP addresses. Which option should they evaluate?",
+      "es": "Un equipo wants a private Google API connection desde VPC cargas de trabajo sin assigning external IP addresses. ¿Cuál option debería they evaluate?"
+    },
+    "options": [
+      {
+        "en": "Private Google Access",
+        "es": "Private Google acceso"
+      },
+      {
+        "en": "A public DNS wildcard",
+        "es": "A public DNS wildcard"
+      },
+      {
+        "en": "A public bucket ACL",
+        "es": "A public bucket ACL"
+      },
+      {
+        "en": "A Cloud Deploy target",
+        "es": "A Cloud desplegar destino"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Private Google Access allows eligible internal-only resources to reach Google APIs without external IPs.",
+      "es": "Private Google acceso permite eligible internal-solo recursos para reach Google APIs sin external IPs."
+    },
+    "source": {
+      "title": "Virtual Private Cloud overview",
+      "url": "https://cloud.google.com/vpc/docs/overview"
+    }
+  },
+  {
+    "id": "devops-057",
+    "question": {
+      "en": "Two VPC networks in different projects need private connectivity. Which Google Cloud feature is designed for this?",
+      "es": "Two VPC networks en diferente proyectos need private connectivity. ¿Cuál Google Cloud feature is designed para this?"
+    },
+    "options": [
+      {
+        "en": "VPC Network Peering",
+        "es": "VPC Network Peering"
+      },
+      {
+        "en": "A Cloud Logging sink",
+        "es": "A Cloud Logging sink"
+      },
+      {
+        "en": "A Kubernetes ConfigMap",
+        "es": "A Kubernetes ConfigMap"
+      },
+      {
+        "en": "A Cloud Build substitution",
+        "es": "A Cloud compilación substitution"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "VPC Network Peering connects networks privately while preserving separate projects and administration.",
+      "es": "VPC Network Peering connects networks privately while preserving separate proyectos y administration."
+    },
+    "source": {
+      "title": "Virtual Private Cloud overview",
+      "url": "https://cloud.google.com/vpc/docs/overview"
+    }
+  },
+  {
+    "id": "devops-058",
+    "question": {
+      "en": "A subnet needs to reach an on-premises network through a VPN or Interconnect. What must be planned carefully?",
+      "es": "A subnet necesita reach an en-premises network mediante a VPN o Interconnect. ¿Qué debe be planned carefully?"
+    },
+    "options": [
+      {
+        "en": "Routes and non-overlapping IP ranges",
+        "es": "Routes y non-overlapping IP ranges"
+      },
+      {
+        "en": "Only the VM display name",
+        "es": "solo the VM display name"
+      },
+      {
+        "en": "The Cloud Billing invoice format",
+        "es": "The Cloud Billing invoice format"
+      },
+      {
+        "en": "The image vulnerability score",
+        "es": "The imagen vulnerability score"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Hybrid connectivity depends on valid routes and non-overlapping address ranges.",
+      "es": "Hybrid connectivity depends en valid routes y non-overlapping address ranges."
+    },
+    "source": {
+      "title": "Virtual Private Cloud overview",
+      "url": "https://cloud.google.com/vpc/docs/overview"
+    }
+  },
+  {
+    "id": "devops-059",
+    "question": {
+      "en": "A backend should accept traffic only from the load balancer health-check and proxy ranges. Which control enforces network-level access?",
+      "es": "A backend debería accept tráfico solo desde the load balancer salud-check y proxy ranges. ¿Cuál control enforces network-level acceso?"
+    },
+    "options": [
+      {
+        "en": "VPC firewall rules",
+        "es": "VPC firewall rules"
+      },
+      {
+        "en": "A Cloud Storage retention policy",
+        "es": "A Cloud Storage retention política"
+      },
+      {
+        "en": "A Secret Manager version",
+        "es": "A secreto Manager version"
+      },
+      {
+        "en": "A Terraform output only",
+        "es": "A Terraform output solo"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "VPC firewall rules can restrict ingress to the required source ranges and ports.",
+      "es": "VPC firewall rules puede restrict ingress para the necesario source ranges y ports."
+    },
+    "source": {
+      "title": "Virtual Private Cloud overview",
+      "url": "https://cloud.google.com/vpc/docs/overview"
+    }
+  },
+  {
+    "id": "devops-060",
+    "question": {
+      "en": "A team needs asynchronous decoupling between a producer and multiple consumers. Which service is appropriate?",
+      "es": "Un equipo needs asynchronous decoupling between a producer y múltiples consumers. ¿Qué servicio is adecuado?"
+    },
+    "options": [
+      {
+        "en": "Pub/Sub",
+        "es": "Pub/Sub"
+      },
+      {
+        "en": "Cloud KMS",
+        "es": "Cloud KMS"
+      },
+      {
+        "en": "Cloud DNS",
+        "es": "Cloud DNS"
+      },
+      {
+        "en": "Cloud Profiler",
+        "es": "Cloud Profiler"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Pub/Sub provides asynchronous messaging with topics and subscriptions for decoupled components.",
+      "es": "Pub/Sub proporciona asynchronous messaging con topics y subscriptions para decoupled components."
+    },
+    "source": {
+      "title": "Pub/Sub overview",
+      "url": "https://cloud.google.com/pubsub/docs/overview"
+    }
+  },
+  {
+    "id": "devops-061",
+    "question": {
+      "en": "A Pub/Sub subscriber may process a message more than once. What should the subscriber design include?",
+      "es": "A Pub/Sub subscriber may process a message more than once. ¿Qué debería the subscriber design include?"
+    },
+    "options": [
+      {
+        "en": "Idempotent processing",
+        "es": "Idempotent processing"
+      },
+      {
+        "en": "A requirement to ignore acknowledgments",
+        "es": "A requirement para ignore acknowledgments"
+      },
+      {
+        "en": "A public topic name as authentication",
+        "es": "A public topic name as authentication"
+      },
+      {
+        "en": "A mutable database schema on every retry",
+        "es": "A mutable database schema en every retry"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "At-least-once delivery means consumers should safely handle repeated processing.",
+      "es": "At-least-once delivery means consumers debería safely handle repeated processing."
+    },
+    "source": {
+      "title": "Pub/Sub overview",
+      "url": "https://cloud.google.com/pubsub/docs/overview"
+    }
+  },
+  {
+    "id": "devops-062",
+    "question": {
+      "en": "A service publishes events but consumers should receive only events matching their own subscription filters. Which Pub/Sub feature helps?",
+      "es": "Un servicio publishes events but consumers debería receive solo events matching their own subscription filters. ¿Cuál Pub/Sub feature ayuda?"
+    },
+    "options": [
+      {
+        "en": "Subscription filters",
+        "es": "Subscription filters"
+      },
+      {
+        "en": "A VM startup script",
+        "es": "A VM startup script"
+      },
+      {
+        "en": "A Cloud Storage ACL",
+        "es": "A Cloud Storage ACL"
+      },
+      {
+        "en": "A GKE node taint",
+        "es": "A GKE nodo taint"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Subscription filters allow a subscription to receive only messages matching attributes.",
+      "es": "Subscription filters Permite a subscription para receive solo messages matching attributes."
+    },
+    "source": {
+      "title": "Pub/Sub overview",
+      "url": "https://cloud.google.com/pubsub/docs/overview"
+    }
+  },
+  {
+    "id": "devops-063",
+    "question": {
+      "en": "A Terraform module creates a VPC and several subnets. What is a benefit of using the module?",
+      "es": "A Terraform module creates a VPC y Varios subnets. ¿Cuál es a benefit de using the module?"
+    },
+    "options": [
+      {
+        "en": "Reusable, parameterized infrastructure definitions",
+        "es": "Reusable, parameterized infrastructure definitions"
+      },
+      {
+        "en": "Automatic bypass of provider permissions",
+        "es": "Automatic bypass de provider permisos"
+      },
+      {
+        "en": "A guarantee of no drift without state",
+        "es": "A guarantee de no drift sin state"
+      },
+      {
+        "en": "Replacement of all runtime monitoring",
+        "es": "Replacement de todos los runtime monitoreo"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Modules package reusable infrastructure patterns with configurable inputs.",
+      "es": "Modules package reusable infrastructure patterns con configurable inputs."
+    },
+    "source": {
+      "title": "Terraform on Google Cloud",
+      "url": "https://cloud.google.com/docs/terraform"
+    }
+  },
+  {
+    "id": "devops-064",
+    "question": {
+      "en": "A team runs Terraform from an external CI system and wants to avoid storing a long-lived service account key. Which option is preferred?",
+      "es": "Un equipo runs Terraform desde an external CI system y quiere avoid storing a de larga duración cuenta de servicio clave. ¿Cuál option is preferred?"
+    },
+    "options": [
+      {
+        "en": "Workload Identity Federation",
+        "es": "carga de trabajo identidad Federation"
+      },
+      {
+        "en": "A key committed to the CI repository",
+        "es": "A clave committed para the CI repositorio"
+      },
+      {
+        "en": "A shared Owner password",
+        "es": "A shared Owner contraseña"
+      },
+      {
+        "en": "A public bucket containing credentials",
+        "es": "A public bucket containing credentials"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Federation allows the external CI identity to obtain short-lived credentials.",
+      "es": "Federation permite the external CI identidad para obtain de corta duración credentials."
+    },
+    "source": {
+      "title": "Workload Identity Federation",
+      "url": "https://cloud.google.com/iam/docs/workload-identity-federation"
+    }
+  },
+  {
+    "id": "devops-065",
+    "question": {
+      "en": "A Cloud Storage bucket contains build artifacts that must be retained for seven years. Which feature helps enforce retention?",
+      "es": "A Cloud Storage bucket contains compilación artefactos that debe be retained para seven years. ¿Cuál feature ayuda enforce retention?"
+    },
+    "options": [
+      {
+        "en": "A retention policy",
+        "es": "A retention política"
+      },
+      {
+        "en": "A Cloud Trace span",
+        "es": "A Cloud Trace span"
+      },
+      {
+        "en": "A Kubernetes readiness probe",
+        "es": "A Kubernetes readiness probe"
+      },
+      {
+        "en": "A Cloud Build substitution",
+        "es": "A Cloud compilación substitution"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Storage retention policies prevent deletion before the configured retention period.",
+      "es": "Cloud Storage retention políticas Impide deletion antes de the configured retention period."
+    },
+    "source": {
+      "title": "Cloud Storage overview",
+      "url": "https://cloud.google.com/storage/docs/introduction"
+    }
+  },
+  {
+    "id": "devops-066",
+    "question": {
+      "en": "A pipeline needs to distribute a package to regional consumers with low latency. Which artifact design is most relevant?",
+      "es": "Una canalización necesita distribute a package para regional consumers con low latencia. ¿Cuál artefacto design is most relevant?"
+    },
+    "options": [
+      {
+        "en": "Use an appropriate Artifact Registry location close to consumers",
+        "es": "Usa an adecuado artefacto Registry location close para consumers"
+      },
+      {
+        "en": "Store it only on a developer laptop",
+        "es": "almacenar it solo en a developer laptop"
+      },
+      {
+        "en": "Use a mutable DNS TXT record",
+        "es": "Usa a mutable DNS TXT record"
+      },
+      {
+        "en": "Put it in a log entry",
+        "es": "Put it en a registro entry"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Repository location affects latency, availability considerations, and data placement.",
+      "es": "repositorio location affects latencia, disponibilidad considerations, y data placement."
+    },
+    "source": {
+      "title": "Artifact Registry overview",
+      "url": "https://cloud.google.com/artifact-registry/docs/overview"
+    }
+  },
+  {
+    "id": "devops-067",
+    "question": {
+      "en": "A service has a user-facing availability objective of 99.9 percent over a month. What is the objective called?",
+      "es": "Un servicio has a user-facing disponibilidad objective de 99.9 percent over a month. ¿Cuál es the objective called?"
+    },
+    "options": [
+      {
+        "en": "An SLO",
+        "es": "An SLO"
+      },
+      {
+        "en": "An SLA invoice",
+        "es": "An SLA invoice"
+      },
+      {
+        "en": "A deployment manifest",
+        "es": "A despliegue manifest"
+      },
+      {
+        "en": "A firewall rule",
+        "es": "A firewall rule"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "An SLO is an internal target for a service-level indicator such as availability.",
+      "es": "An SLO is an internal destino para a service-level indicator such as disponibilidad."
+    },
+    "source": {
+      "title": "Google SRE service level objectives",
+      "url": "https://sre.google/sre-book/service-level-objectives/"
+    }
+  },
+  {
+    "id": "devops-068",
+    "question": {
+      "en": "A team wants to measure the proportion of valid requests that return successfully. What kind of SLI is this?",
+      "es": "Un equipo quiere Mide the proportion de valid solicitudes that return successfully. ¿Qué kind de SLI is this?"
+    },
+    "options": [
+      {
+        "en": "An availability or success-rate SLI",
+        "es": "An disponibilidad o success-tasa SLI"
+      },
+      {
+        "en": "A storage capacity quota",
+        "es": "A storage capacity quota"
+      },
+      {
+        "en": "A deployment target",
+        "es": "A despliegue destino"
+      },
+      {
+        "en": "An IAM binding",
+        "es": "An IAM binding"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Success rate measures the fraction of requests meeting the defined success condition.",
+      "es": "Success tasa measures the fraction de solicitudes meeting the defined success condition."
+    },
+    "source": {
+      "title": "Google SRE service level objectives",
+      "url": "https://sre.google/sre-book/service-level-objectives/"
+    }
+  },
+  {
+    "id": "devops-069",
+    "question": {
+      "en": "A service has consumed its monthly error budget. What is the most appropriate delivery response?",
+      "es": "Un servicio has consumed its monthly error budget. ¿Cuál es the most adecuado delivery respuesta?"
+    },
+    "options": [
+      {
+        "en": "Review the risk and prioritize reliability work before more risky changes",
+        "es": "Revisa the risk y prioritize confiabilidad work antes de more risky cambios"
+      },
+      {
+        "en": "Ignore the budget and increase deployment frequency",
+        "es": "Ignore the budget y increase despliegue frequency"
+      },
+      {
+        "en": "Delete monitoring data",
+        "es": "Delete monitoreo data"
+      },
+      {
+        "en": "Grant the team Owner",
+        "es": "Concede the team Owner"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "An exhausted error budget is a signal to reduce change risk and restore reliability.",
+      "es": "An exhausted error budget is a signal para reduce change risk y restore confiabilidad."
+    },
+    "source": {
+      "title": "Google SRE error budgets",
+      "url": "https://sre.google/workbook/implementing-slos/"
+    }
+  },
+  {
+    "id": "devops-070",
+    "question": {
+      "en": "A team wants to compare reliability across two versions during a gradual rollout. Which practice is most useful?",
+      "es": "Un equipo quiere compare confiabilidad entre two versions durante a gradual rollout. ¿Cuál practice is most useful?"
+    },
+    "options": [
+      {
+        "en": "Compare the same SLIs and SLO-related metrics for each cohort",
+        "es": "Compare the mismo SLIs y SLO-related métricas para cada cohort"
+      },
+      {
+        "en": "Compare only CPU usage",
+        "es": "Compare solo CPU usage"
+      },
+      {
+        "en": "Disable alerts during the rollout",
+        "es": "Disable alerts durante the rollout"
+      },
+      {
+        "en": "Use different definitions for each version",
+        "es": "Usa diferente definitions para cada version"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Consistent SLIs make the reliability comparison between cohorts meaningful.",
+      "es": "Consistent SLIs make the confiabilidad comparison between cohorts meaningful."
+    },
+    "source": {
+      "title": "Google SRE service level objectives",
+      "url": "https://sre.google/sre-book/service-level-objectives/"
+    }
+  },
+  {
+    "id": "devops-071",
+    "question": {
+      "en": "A postmortem should help prevent recurrence without blaming individuals. Which practice follows blameless SRE principles?",
+      "es": "A postmortem debería help Impide recurrence sin blaming individuals. ¿Cuál practice follows blameless SRE principles?"
+    },
+    "options": [
+      {
+        "en": "Focus on system conditions, contributing factors, and corrective actions",
+        "es": "Focus en system conditions, contributing factors, y corrective actions"
+      },
+      {
+        "en": "Name and punish the engineer who deployed",
+        "es": "Name y punish the engineer who deployed"
+      },
+      {
+        "en": "Remove all incident records",
+        "es": "Remove todos los incident records"
+      },
+      {
+        "en": "Avoid assigning any follow-up work",
+        "es": "Avoid assigning any follow-up work"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Blameless postmortems examine systems and decisions so the organization can improve.",
+      "es": "Blameless postmortems examine systems y decisions so the organización puede improve."
+    },
+    "source": {
+      "title": "Google SRE error budgets",
+      "url": "https://sre.google/workbook/implementing-slos/"
+    }
+  },
+  {
+    "id": "devops-072",
+    "question": {
+      "en": "A team is paged for a condition that requires no immediate human action. What should they consider?",
+      "es": "Un equipo is paged para a condition that requiere no immediate humana action. ¿Qué debería they consider?"
+    },
+    "options": [
+      {
+        "en": "Make the alert actionable or convert it to a non-paging notification",
+        "es": "Make the alert actionable o convert it para a non-paging notification"
+      },
+      {
+        "en": "Page more people",
+        "es": "Page more people"
+      },
+      {
+        "en": "Delete the metric",
+        "es": "Delete the métrica"
+      },
+      {
+        "en": "Increase the alert threshold randomly",
+        "es": "Increase the alert threshold randomly"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Paging should be reserved for conditions requiring timely human response.",
+      "es": "Paging debería be reserved para conditions requiring timely humana respuesta."
+    },
+    "source": {
+      "title": "Cloud Monitoring alerting",
+      "url": "https://cloud.google.com/monitoring/alerts"
+    }
+  },
+  {
+    "id": "devops-073",
+    "question": {
+      "en": "A monitoring alert should fire only when latency remains above a threshold for several minutes. Which setting controls this behavior?",
+      "es": "A monitoreo alert debería fire solo when latencia remains above a threshold para Varios minutes. ¿Cuál setting controls this behavior?"
+    },
+    "options": [
+      {
+        "en": "The alert condition duration or retest window",
+        "es": "The alert condition duración o retest window"
+      },
+      {
+        "en": "The project number",
+        "es": "The proyecto number"
+      },
+      {
+        "en": "The image digest",
+        "es": "The imagen digest"
+      },
+      {
+        "en": "The bucket location",
+        "es": "The bucket location"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "A duration window prevents transient spikes from immediately triggering an alert.",
+      "es": "A duración window impide transient spikes desde immediately triggering an alert."
+    },
+    "source": {
+      "title": "Cloud Monitoring alerting",
+      "url": "https://cloud.google.com/monitoring/alerts"
+    }
+  },
+  {
+    "id": "devops-074",
+    "question": {
+      "en": "A service owner wants to detect whether an endpoint is reachable from outside the production network. Which monitoring feature helps?",
+      "es": "Un servicio owner quiere detect whether an endpoint is reachable desde outside the production network. ¿Cuál monitoreo feature ayuda?"
+    },
+    "options": [
+      {
+        "en": "An uptime check",
+        "es": "An uptime check"
+      },
+      {
+        "en": "A local process list",
+        "es": "A local process list"
+      },
+      {
+        "en": "A Terraform variable",
+        "es": "A Terraform variable"
+      },
+      {
+        "en": "A service account key",
+        "es": "Un servicio account clave"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Uptime checks test endpoint reachability from configured Google Cloud locations.",
+      "es": "Uptime checks test endpoint reachability desde configured Google Cloud locations."
+    },
+    "source": {
+      "title": "Cloud Monitoring overview",
+      "url": "https://cloud.google.com/monitoring/docs"
+    }
+  },
+  {
+    "id": "devops-075",
+    "question": {
+      "en": "A dashboard should show the rate of errors emitted by an application. Which data source is most appropriate?",
+      "es": "A dashboard debería show the tasa de errores emitted by an aplicación. ¿Cuál data source is most adecuado?"
+    },
+    "options": [
+      {
+        "en": "A time-series metric",
+        "es": "A time-series métrica"
+      },
+      {
+        "en": "A source code branch name",
+        "es": "A source code rama name"
+      },
+      {
+        "en": "A DNS zone",
+        "es": "A DNS zona"
+      },
+      {
+        "en": "A Secret Manager version",
+        "es": "A secreto Manager version"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Metrics are designed for aggregation and visualization over time.",
+      "es": "métricas are designed para aggregation y visualization over time."
+    },
+    "source": {
+      "title": "Cloud Monitoring overview",
+      "url": "https://cloud.google.com/monitoring/docs"
+    }
+  },
+  {
+    "id": "devops-076",
+    "question": {
+      "en": "An application writes a structured log field named severity. What does structured logging improve?",
+      "es": "An aplicación writes a structured registro field named severity. ¿Qué does structured logging improve?"
+    },
+    "options": [
+      {
+        "en": "Filtering and querying log fields consistently",
+        "es": "Filtering y querying registro fields consistently"
+      },
+      {
+        "en": "Automatic bug fixing",
+        "es": "Automatic bug fixing"
+      },
+      {
+        "en": "Eliminating all storage cost",
+        "es": "Eliminating todos los storage costo"
+      },
+      {
+        "en": "Replacing IAM",
+        "es": "Replacing IAM"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Structured fields make logs easier to filter, query, and route.",
+      "es": "Structured fields make registros easier para filter, query, y route."
+    },
+    "source": {
+      "title": "Cloud Logging overview",
+      "url": "https://cloud.google.com/logging/docs"
+    }
+  },
+  {
+    "id": "devops-077",
+    "question": {
+      "en": "A team wants to count occurrences of a specific error message over time. Which feature converts matching logs into a metric?",
+      "es": "Un equipo quiere count occurrences de a específico error message over time. ¿Cuál feature converts matching registros into a métrica?"
+    },
+    "options": [
+      {
+        "en": "A logs-based metric",
+        "es": "A registros-based métrica"
+      },
+      {
+        "en": "A load balancer backend",
+        "es": "A load balancer backend"
+      },
+      {
+        "en": "A service account role",
+        "es": "Un servicio account role"
+      },
+      {
+        "en": "A Cloud Deploy release",
+        "es": "A Cloud desplegar versión"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Logs-based metrics derive time-series values from matching log entries.",
+      "es": "registros-based métricas derive time-series values desde matching registro entries."
+    },
+    "source": {
+      "title": "Log-based metrics",
+      "url": "https://cloud.google.com/logging/docs/logs-based-metrics"
+    }
+  },
+  {
+    "id": "devops-078",
+    "question": {
+      "en": "A security team needs to archive selected audit logs in BigQuery for analysis. What should they configure?",
+      "es": "Un equipo de seguridad necesita archive selected audit registros en BigQuery para análisis. ¿Qué debería they Configura?"
+    },
+    "options": [
+      {
+        "en": "A Cloud Logging sink to BigQuery",
+        "es": "A Cloud Logging sink para BigQuery"
+      },
+      {
+        "en": "A GKE liveness probe",
+        "es": "A GKE liveness probe"
+      },
+      {
+        "en": "A Cloud Run revision tag",
+        "es": "A Cloud Run revision tag"
+      },
+      {
+        "en": "A Cloud KMS alias",
+        "es": "A Cloud KMS alias"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Logging sinks route matching log entries to supported destinations such as BigQuery.",
+      "es": "Logging sinks route matching registro entries para supported destinations such as BigQuery."
+    },
+    "source": {
+      "title": "Cloud Logging exports",
+      "url": "https://cloud.google.com/logging/docs/export"
+    }
+  },
+  {
+    "id": "devops-079",
+    "question": {
+      "en": "A log sink should export only failed requests from one service. What should the sink use?",
+      "es": "A registro sink debería export solo failed solicitudes desde uno service. ¿Qué debería the sink Usa?"
+    },
+    "options": [
+      {
+        "en": "A precise advanced log filter",
+        "es": "A precise advanced registro filter"
+      },
+      {
+        "en": "A project-wide Owner binding",
+        "es": "A proyecto-wide Owner binding"
+      },
+      {
+        "en": "A random sampling percentage",
+        "es": "A random sampling percentage"
+      },
+      {
+        "en": "A VM machine type",
+        "es": "A VM machine type"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "A targeted filter limits export volume and keeps the destination focused on relevant entries.",
+      "es": "A targeted filter limita export volume y keeps the destination focused en relevant entries."
+    },
+    "source": {
+      "title": "Cloud Logging exports",
+      "url": "https://cloud.google.com/logging/docs/export"
+    }
+  },
+  {
+    "id": "devops-080",
+    "question": {
+      "en": "A request crosses several services and the team needs to locate where latency accumulates. Which tool is most appropriate?",
+      "es": "A solicitud crosses Varios services y the team necesita locate ¿Dónde latencia accumulates. ¿Cuál tool is most adecuado?"
+    },
+    "options": [
+      {
+        "en": "Cloud Trace",
+        "es": "Cloud Trace"
+      },
+      {
+        "en": "Cloud Billing",
+        "es": "Cloud Billing"
+      },
+      {
+        "en": "Cloud Storage",
+        "es": "Cloud Storage"
+      },
+      {
+        "en": "Cloud DNS",
+        "es": "Cloud DNS"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Trace correlates distributed request spans to show latency across services.",
+      "es": "Cloud Trace correlates distributed solicitud spans para show latencia entre services."
+    },
+    "source": {
+      "title": "Cloud Trace overview",
+      "url": "https://cloud.google.com/trace/docs/overview"
+    }
+  },
+  {
+    "id": "devops-081",
+    "question": {
+      "en": "A production service has high CPU usage but the team needs to identify which code paths consume CPU. Which tool should they consider?",
+      "es": "Una producción service has high CPU usage but the team necesita identificar ¿Cuál code paths consume CPU. ¿Cuál tool debería they consider?"
+    },
+    "options": [
+      {
+        "en": "Cloud Profiler",
+        "es": "Cloud Profiler"
+      },
+      {
+        "en": "Cloud Deploy",
+        "es": "Cloud desplegar"
+      },
+      {
+        "en": "Cloud KMS",
+        "es": "Cloud KMS"
+      },
+      {
+        "en": "Cloud NAT",
+        "es": "Cloud NAT"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Profiler helps identify resource consumption by application code in supported runtimes.",
+      "es": "Cloud Profiler ayuda identificar recurso consumption by aplicación code en supported runtimes."
+    },
+    "source": {
+      "title": "Cloud Profiler overview",
+      "url": "https://cloud.google.com/profiler/docs/about-profiler"
+    }
+  },
+  {
+    "id": "devops-082",
+    "question": {
+      "en": "A team wants application errors grouped by type with stack information. Which service helps?",
+      "es": "Un equipo wants aplicación errores grouped by type con stack information. ¿Qué servicio ayuda?"
+    },
+    "options": [
+      {
+        "en": "Error Reporting",
+        "es": "error Reporting"
+      },
+      {
+        "en": "Cloud Storage",
+        "es": "Cloud Storage"
+      },
+      {
+        "en": "Artifact Registry",
+        "es": "artefacto Registry"
+      },
+      {
+        "en": "VPC Peering",
+        "es": "VPC Peering"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Error Reporting aggregates and presents application error information for investigation.",
+      "es": "error Reporting aggregates y presents aplicación error information para investigation."
+    },
+    "source": {
+      "title": "Cloud Monitoring overview",
+      "url": "https://cloud.google.com/monitoring/docs"
+    }
+  },
+  {
+    "id": "devops-083",
+    "question": {
+      "en": "A monitoring policy needs to alert on a metric whose value is below a threshold for a sustained period. Which design is appropriate?",
+      "es": "A monitoreo política necesita alert en a métrica whose value is below a threshold para a sustained period. ¿Cuál design is adecuado?"
+    },
+    "options": [
+      {
+        "en": "A threshold condition with an evaluation duration",
+        "es": "A threshold condition con an evaluation duración"
+      },
+      {
+        "en": "A source repository webhook",
+        "es": "A source repositorio webhook"
+      },
+      {
+        "en": "A bucket retention policy",
+        "es": "A bucket retention política"
+      },
+      {
+        "en": "A container image tag",
+        "es": "A contenedor imagen tag"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Threshold conditions and evaluation windows express sustained metric-based alerting.",
+      "es": "Threshold conditions y evaluation windows express sustained métrica-based alerting."
+    },
+    "source": {
+      "title": "Cloud Monitoring alerting",
+      "url": "https://cloud.google.com/monitoring/alerts"
+    }
+  },
+  {
+    "id": "devops-084",
+    "question": {
+      "en": "A team wants to reduce alert fatigue caused by duplicate notifications for the same incident. Which alerting feature should they use?",
+      "es": "Un equipo quiere reduce alert fatigue caused by duplicate notifications para the mismo incident. ¿Cuál alerting feature debería they Usa?"
+    },
+    "options": [
+      {
+        "en": "Notification policies with grouping or aggregation",
+        "es": "Notification políticas con grouping o aggregation"
+      },
+      {
+        "en": "More notification channels for every event",
+        "es": "More notification channels para every event"
+      },
+      {
+        "en": "Disabling all incident documentation",
+        "es": "Disabling todos los incident documentation"
+      },
+      {
+        "en": "A larger VM",
+        "es": "A larger VM"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Grouping related incidents reduces duplicate notifications while preserving visibility.",
+      "es": "Grouping related incidents reduce duplicate notifications while preserving visibility."
+    },
+    "source": {
+      "title": "Cloud Monitoring alerting",
+      "url": "https://cloud.google.com/monitoring/alerts"
+    }
+  },
+  {
+    "id": "devops-085",
+    "question": {
+      "en": "A service emits request latency as a distribution rather than a single average. Why can this be useful?",
+      "es": "Un servicio emits solicitud latencia as a distribution rather than a único promedio. ¿Por qué puede this be useful?"
+    },
+    "options": [
+      {
+        "en": "It supports percentile analysis and reveals tail latency",
+        "es": "It admite percentile análisis y reveals tail latencia"
+      },
+      {
+        "en": "It removes the need for an SLO",
+        "es": "It removes the need para an SLO"
+      },
+      {
+        "en": "It guarantees every request is fast",
+        "es": "It guarantees every solicitud is fast"
+      },
+      {
+        "en": "It grants IAM permissions",
+        "es": "It grants IAM permisos"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Distributions can reveal latency percentiles and tail behavior hidden by averages.",
+      "es": "Distributions puede reveal latencia percentiles y tail behavior hidden by averages."
+    },
+    "source": {
+      "title": "Cloud Monitoring overview",
+      "url": "https://cloud.google.com/monitoring/docs"
+    }
+  },
+  {
+    "id": "devops-086",
+    "question": {
+      "en": "A team needs to preserve the original source revision and artifact metadata for an audit. What should they maintain?",
+      "es": "Un equipo necesita preserve the original revisión de código y artefacto metadata para an audit. ¿Qué debería they maintain?"
+    },
+    "options": [
+      {
+        "en": "Build provenance and immutable artifact references",
+        "es": "compilación provenance y immutable artefacto references"
+      },
+      {
+        "en": "Only a mutable latest tag",
+        "es": "solo a mutable latest tag"
+      },
+      {
+        "en": "Only a deployment timestamp",
+        "es": "solo a despliegue timestamp"
+      },
+      {
+        "en": "A screenshot of the pipeline",
+        "es": "A screenshot de the canalización"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Provenance and immutable references connect deployed artifacts to their source and build process.",
+      "es": "Provenance y immutable references connect deployed artefactos para their source y compilación process."
+    },
+    "source": {
+      "title": "Artifact Registry overview",
+      "url": "https://cloud.google.com/artifact-registry/docs/overview"
+    }
+  },
+  {
+    "id": "devops-087",
+    "question": {
+      "en": "A release has a high-risk database migration. Which deployment strategy reduces blast radius?",
+      "es": "A versión has a high-risk database migration. ¿Cuál despliegue strategy reduce blast radius?"
+    },
+    "options": [
+      {
+        "en": "Progressive rollout with an observation gate",
+        "es": "Progressive rollout con an observation gate"
+      },
+      {
+        "en": "Deploy to every instance simultaneously",
+        "es": "desplegar para every instancia simultaneously"
+      },
+      {
+        "en": "Disable health checks",
+        "es": "Disable salud checks"
+      },
+      {
+        "en": "Skip rollback planning",
+        "es": "Skip rollback planning"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Progressive rollout limits exposure and provides an opportunity to observe or halt the change.",
+      "es": "Progressive rollout limita exposure y proporciona an opportunity para observe o halt the change."
+    },
+    "source": {
+      "title": "Cloud Deploy overview",
+      "url": "https://cloud.google.com/deploy/docs/overview"
+    }
+  },
+  {
+    "id": "devops-088",
+    "question": {
+      "en": "A rollback must restore the last known-good application version. Which artifact property makes this reliable?",
+      "es": "A rollback debe restore the último known-good aplicación version. ¿Cuál artefacto property makes this reliable?"
+    },
+    "options": [
+      {
+        "en": "An immutable version or digest",
+        "es": "An immutable version o digest"
+      },
+      {
+        "en": "A mutable latest tag",
+        "es": "A mutable latest tag"
+      },
+      {
+        "en": "A developer laptop copy",
+        "es": "Un desarrollador laptop copy"
+      },
+      {
+        "en": "A branch name without a commit",
+        "es": "A rama name sin a commit"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Immutable versions make the rollback target deterministic.",
+      "es": "Immutable versions make the rollback destino deterministic."
+    },
+    "source": {
+      "title": "Artifact Registry overview",
+      "url": "https://cloud.google.com/artifact-registry/docs/overview"
+    }
+  },
+  {
+    "id": "devops-089",
+    "question": {
+      "en": "A production deployment should stop automatically when an availability indicator degrades. What should be connected to the rollout?",
+      "es": "Una producción despliegue debería stop automatically when an disponibilidad indicator degrades. ¿Qué debería be connected para the rollout?"
+    },
+    "options": [
+      {
+        "en": "A metric-based verification or policy gate",
+        "es": "A métrica-based verification o política gate"
+      },
+      {
+        "en": "A static README",
+        "es": "A static README"
+      },
+      {
+        "en": "A DNS comment",
+        "es": "A DNS comment"
+      },
+      {
+        "en": "A local shell alias",
+        "es": "A local shell alias"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Automated verification can halt a rollout when defined reliability signals deteriorate.",
+      "es": "Automated verification puede halt a rollout when defined confiabilidad signals deteriorate."
+    },
+    "source": {
+      "title": "Cloud Deploy overview",
+      "url": "https://cloud.google.com/deploy/docs/overview"
+    }
+  },
+  {
+    "id": "devops-090",
+    "question": {
+      "en": "A team wants to test a Cloud Run revision with a small portion of traffic before full promotion. Which approach fits?",
+      "es": "Un equipo quiere test a Cloud Run revision con a small portion de tráfico antes de full promotion. ¿Cuál approach fits?"
+    },
+    "options": [
+      {
+        "en": "Gradually assign traffic to the revision",
+        "es": "Gradually assign tráfico para the revision"
+      },
+      {
+        "en": "Delete the previous revision immediately",
+        "es": "Delete the previous revision immediately"
+      },
+      {
+        "en": "Use only a source branch name",
+        "es": "Usa solo a source rama name"
+      },
+      {
+        "en": "Disable request metrics",
+        "es": "Disable solicitud métricas"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Cloud Run revisions support controlled traffic allocation for gradual exposure.",
+      "es": "Cloud Run revisions support controlled tráfico allocation para gradual exposure."
+    },
+    "source": {
+      "title": "Cloud Run overview",
+      "url": "https://cloud.google.com/run/docs/overview"
+    }
+  },
+  {
+    "id": "devops-091",
+    "question": {
+      "en": "A service receives traffic spikes that last only a few seconds. Which scaling concern should the team evaluate?",
+      "es": "Un servicio receives tráfico spikes that último solo a few seconds. ¿Cuál scaling concern debería the team evaluate?"
+    },
+    "options": [
+      {
+        "en": "Startup latency and minimum capacity",
+        "es": "Startup latencia y minimum capacity"
+      },
+      {
+        "en": "Only the source repository size",
+        "es": "solo the source repositorio size"
+      },
+      {
+        "en": "The IAM policy description",
+        "es": "The IAM política description"
+      },
+      {
+        "en": "The log sink destination name",
+        "es": "The registro sink destination name"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Short spikes can expose cold-start or scale-out delays, so startup behavior and baseline capacity matter.",
+      "es": "Short spikes puede expose cold-start o scale-out delays, so startup behavior y baseline capacity matter."
+    },
+    "source": {
+      "title": "Cloud Run overview",
+      "url": "https://cloud.google.com/run/docs/overview"
+    }
+  },
+  {
+    "id": "devops-092",
+    "question": {
+      "en": "A regional application should keep serving if one zone fails. What should be combined with multi-zone capacity?",
+      "es": "Una aplicación regional aplicación debería keep serving if uno zona fails. ¿Qué debería be combined con multi-zona capacity?"
+    },
+    "options": [
+      {
+        "en": "Health-aware routing and capacity in other zones",
+        "es": "salud-aware routing y capacity en other zonas"
+      },
+      {
+        "en": "A single-zone database with no backup",
+        "es": "A único-zona database con no backup"
+      },
+      {
+        "en": "A manual DNS edit during the outage",
+        "es": "A manual DNS edit durante the outage"
+      },
+      {
+        "en": "A disabled health check",
+        "es": "A disabled salud check"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Resilience requires both available capacity and routing that avoids unhealthy backends.",
+      "es": "Resilience requiere both disponible capacity y routing that avoids unhealthy backends."
+    },
+    "source": {
+      "title": "Managed instance groups",
+      "url": "https://cloud.google.com/compute/docs/instance-groups"
+    }
+  },
+  {
+    "id": "devops-093",
+    "question": {
+      "en": "A load balancer backend repeatedly fails health checks after deployment. What is the first operational response?",
+      "es": "A load balancer backend repeatedly fails salud checks después de despliegue. ¿Cuál es the primero operational respuesta?"
+    },
+    "options": [
+      {
+        "en": "Inspect the health-check path, port, firewall, and application readiness",
+        "es": "inspeccionar the salud-check path, port, firewall, y aplicación readiness"
+      },
+      {
+        "en": "Increase traffic immediately",
+        "es": "Increase tráfico immediately"
+      },
+      {
+        "en": "Delete all monitoring",
+        "es": "Delete todos los monitoreo"
+      },
+      {
+        "en": "Grant Owner to the load balancer",
+        "es": "Concede Owner para the load balancer"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Health-check failures can result from path, port, network, or application readiness mismatches.",
+      "es": "salud-check fallos puede result desde path, port, network, o aplicación readiness mismatches."
+    },
+    "source": {
+      "title": "Cloud Load Balancing overview",
+      "url": "https://cloud.google.com/load-balancing/docs/load-balancing-overview"
+    }
+  },
+  {
+    "id": "devops-094",
+    "question": {
+      "en": "A service has a hard dependency on a downstream API. Which resilience pattern can prevent every request from waiting indefinitely?",
+      "es": "Un servicio has a hard dependency en a downstream API. ¿Cuál resilience pattern puede Impide every solicitud desde waiting indefinitely?"
+    },
+    "options": [
+      {
+        "en": "Timeouts and bounded retries with backoff",
+        "es": "Timeouts y bounded retries con backoff"
+      },
+      {
+        "en": "Infinite retries without delay",
+        "es": "Infinite retries sin delay"
+      },
+      {
+        "en": "A larger log retention period",
+        "es": "A larger registro retention period"
+      },
+      {
+        "en": "A public service account key",
+        "es": "A public cuenta de servicio clave"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Timeouts and bounded exponential backoff prevent unbounded resource consumption and retry storms.",
+      "es": "Timeouts y bounded exponential backoff Impide unbounded recurso consumption y retry storms."
+    },
+    "source": {
+      "title": "Google SRE service level objectives",
+      "url": "https://sre.google/sre-book/service-level-objectives/"
+    }
+  },
+  {
+    "id": "devops-095",
+    "question": {
+      "en": "A team wants to protect a downstream service from a sudden retry storm. Which control is most relevant?",
+      "es": "Un equipo quiere protect a downstream service desde a sudden retry storm. ¿Qué control es most relevant?"
+    },
+    "options": [
+      {
+        "en": "Rate limiting or a circuit breaker",
+        "es": "tasa limiting o a circuit breaker"
+      },
+      {
+        "en": "More unbounded retries",
+        "es": "More unbounded retries"
+      },
+      {
+        "en": "Removing request deadlines",
+        "es": "Removing solicitud deadlines"
+      },
+      {
+        "en": "Disabling all error logs",
+        "es": "Disabling todos los error registros"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Rate limits and circuit breakers reduce cascading failure during downstream problems.",
+      "es": "tasa limita y circuit breakers reduce cascading fallo durante downstream problems."
+    },
+    "source": {
+      "title": "Google SRE service level objectives",
+      "url": "https://sre.google/sre-book/service-level-objectives/"
+    }
+  },
+  {
+    "id": "devops-096",
+    "question": {
+      "en": "A finance team wants an alert when monthly spending approaches a threshold, without automatically stopping all workloads. What should they configure?",
+      "es": "A finance team wants an alert when monthly spending approaches a threshold, sin automatically stopping todos los cargas de trabajo. ¿Qué debería they Configura?"
+    },
+    "options": [
+      {
+        "en": "A Cloud Billing budget and alert",
+        "es": "A Cloud Billing budget y alert"
+      },
+      {
+        "en": "A Kubernetes liveness probe",
+        "es": "A Kubernetes liveness probe"
+      },
+      {
+        "en": "A Cloud Trace span",
+        "es": "A Cloud Trace span"
+      },
+      {
+        "en": "A Binary Authorization policy",
+        "es": "A Binary Authorization política"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Budgets provide spend thresholds and notifications; they do not automatically cap usage by default.",
+      "es": "Budgets provide spend thresholds y notifications; they do not automatically cap usage by default."
+    },
+    "source": {
+      "title": "Cloud Billing budgets",
+      "url": "https://cloud.google.com/billing/docs/how-to/budgets"
+    }
+  },
+  {
+    "id": "devops-097",
+    "question": {
+      "en": "A team wants to lower cost for a nonproduction VM that is idle outside business hours. Which action should they evaluate?",
+      "es": "Un equipo quiere lower costo para a nonproduction VM that is idle outside business hours. ¿Cuál action debería they evaluate?"
+    },
+    "options": [
+      {
+        "en": "Schedule it to stop when it is not needed",
+        "es": "Schedule it para stop when it is not needed"
+      },
+      {
+        "en": "Increase its machine size",
+        "es": "Increase its machine size"
+      },
+      {
+        "en": "Make it externally reachable",
+        "es": "Make it externally reachable"
+      },
+      {
+        "en": "Disable labels",
+        "es": "Disable labels"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Stopping idle nonproduction resources can reduce usage-based cost.",
+      "es": "Stopping idle nonproduction recursos puede reduce usage-based costo."
+    },
+    "source": {
+      "title": "Cloud Billing budgets",
+      "url": "https://cloud.google.com/billing/docs/how-to/budgets"
+    }
+  },
+  {
+    "id": "devops-098",
+    "question": {
+      "en": "A workload has predictable CPU demand and a stable baseline. Which capacity decision can improve both reliability and cost planning?",
+      "es": "A carga de trabajo has predictable CPU demand y a stable baseline. ¿Cuál capacity decision puede improve both confiabilidad y costo planning?"
+    },
+    "options": [
+      {
+        "en": "Choose an appropriate baseline and autoscaling limits",
+        "es": "Choose an adecuado baseline y autoscaling limita"
+      },
+      {
+        "en": "Allow unlimited scale without quotas",
+        "es": "Permite unlimited scale sin quotas"
+      },
+      {
+        "en": "Remove all health checks",
+        "es": "Remove todos los salud checks"
+      },
+      {
+        "en": "Use a random machine type",
+        "es": "Usa a random machine type"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "A planned baseline with bounded autoscaling balances responsiveness, quotas, and cost.",
+      "es": "A planned baseline con bounded autoscaling balances responsiveness, quotas, y costo."
+    },
+    "source": {
+      "title": "Compute Engine autoscaling",
+      "url": "https://cloud.google.com/compute/docs/autoscaler"
+    }
+  },
+  {
+    "id": "devops-099",
+    "question": {
+      "en": "A team is comparing two architecture options. Which measurement should be included in a DevOps capacity decision?",
+      "es": "Un equipo is comparing two architecture options. ¿Cuál medición debería be included en a DevOps capacity decision?"
+    },
+    "options": [
+      {
+        "en": "Reliability, performance, operational effort, and cost",
+        "es": "confiabilidad, rendimiento, operational effort, y costo"
+      },
+      {
+        "en": "Only the initial purchase price",
+        "es": "solo the initial purchase price"
+      },
+      {
+        "en": "Only the number of source files",
+        "es": "solo the number de source files"
+      },
+      {
+        "en": "Only the deployment color",
+        "es": "solo the despliegue color"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Operational architecture decisions should account for service behavior, effort, and total cost.",
+      "es": "Operational architecture decisions debería account para service behavior, effort, y total costo."
+    },
+    "source": {
+      "title": "Cloud Billing budgets",
+      "url": "https://cloud.google.com/billing/docs/how-to/budgets"
+    }
+  },
+  {
+    "id": "devops-100",
+    "question": {
+      "en": "A team wants to improve performance without guessing. What should they do first?",
+      "es": "Un equipo quiere mejorar el rendimiento sin adivinar. ¿Qué debería they do primero?"
+    },
+    "options": [
+      {
+        "en": "Measure representative workloads, identify the bottleneck, and validate a change",
+        "es": "Mide cargas de trabajo representativas, identifica el cuello de botella y valida un cambio"
+      },
+      {
+        "en": "Increase every resource immediately",
+        "es": "Increase every recurso immediately"
+      },
+      {
+        "en": "Disable tracing and logging",
+        "es": "Disable tracing y logging"
+      },
+      {
+        "en": "Rewrite the entire system without measurements",
+        "es": "Rewrite the entire system sin measurements"
+      }
+    ],
+    "correctOption": 0,
+    "explanation": {
+      "en": "Measurement and bottleneck analysis make performance changes targeted and verifiable.",
+      "es": "La medición y el análisis del cuello de botella hacen que los cambios de rendimiento sean específicos y verificables."
+    },
+    "source": {
+      "title": "Cloud Monitoring overview",
+      "url": "https://cloud.google.com/monitoring/docs"
+    }
+  }
+]

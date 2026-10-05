@@ -1,0 +1,17 @@
+flowchart TD
+    A[Solicitud del usuario] --> B{Tipo de trabajo}
+    B -- Consulta --> C[Inspeccionar y responder]
+    B -- Cambio acotado --> D[Inspeccionar, modificar y verificar]
+    B -- Continuacion --> E["$sdd-resume: estado y archivos reales"]
+    E --> B
+    B -- Funcionalidad sustancial --> F["$sdd-constitution si falta definir producto"]
+    F --> G["$sdd-feature: requisitos, plan y criterios"]
+    G --> H{Duda tecnica relevante}
+    H -- Si --> I["$sdd-poc"]
+    I --> G
+    H -- No --> J["$sdd-implement dentro del alcance acordado"]
+    J --> K["$sdd-test y revisiones pertinentes"]
+    K -- Fallos --> J
+    K -- Conforme --> L[Evidencia vigente y estado actualizado]
+    D --> L
+    L --> M[Integrar cuando este autorizado]

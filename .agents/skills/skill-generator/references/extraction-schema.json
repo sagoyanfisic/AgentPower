@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Optional schema for organizing documentation research before drafting SKILL.md.",
+  "properties": {
+    "skill_name": {
+      "type": "string",
+      "description": "Hyphen-case name for the skill (e.g. 'stripe-webhooks')"
+    },
+    "description": {
+      "type": "string",
+      "description": "Full description including activation triggers (< 1024 chars)"
+    },
+    "overview": {
+      "type": "string",
+      "description": "Short summary of skill capabilities"
+    },
+    "triggers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "User trigger phrases"
+    },
+    "workflows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "steps": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["name", "description", "steps"]
+      }
+    }
+  },
+  "required": ["skill_name", "description", "overview", "workflows"]
+}

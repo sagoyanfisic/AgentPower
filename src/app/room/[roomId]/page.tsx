@@ -152,7 +152,7 @@ export default function RoomPage() {
     setError("");
     try {
       if (!(await saveProgress())) { setError("No se pudo guardar la última respuesta."); return; }
-      const response = await fetch(`/api/room/${roomId}/result`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language }), signal: AbortSignal.timeout(15000) });
+      const response = await fetch(`/api/room/${roomId}/result`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language, answers }), signal: AbortSignal.timeout(15000) });
       const data = await response.json() as { score?: number; error?: string };
       if (!response.ok) { setError(data.error ?? "La sesión todavía no puede finalizar."); return; }
       setResult(data as PracticeResult);

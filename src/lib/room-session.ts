@@ -19,8 +19,8 @@ export async function readRoomSession(request: NextRequest, roomId: string, ques
   if (!token || !isSessionToken(token)) return null;
   const redis = await getRedisClient();
   const key = roomSessionKey(token);
-  const raw = await redis.get(key);
-  const binding = await redis.get(`${key}:binding`);
+  // These values are independent. Read them in parallel to save one Redis round trip.
+  const [raw, binding] = await Promise.all([redis.get(key), redis.get(`${key}:binding`)]);
   if (!raw || binding !== getSessionBinding(request)) return null;
   try {
     const parsed: unknown = JSON.parse(raw);
@@ -57,7 +57,9 @@ export async function createRoomSession(request: NextRequest, room: Room, questi
   };
   const redis = await getRedisClient();
   const key = roomSessionKey(token);
-  await redis.set(key, JSON.stringify(session), { EX: ROOM_SESSION_TTL_SECONDS });
-  await redis.set(`${key}:binding`, getSessionBinding(request), { EX: ROOM_SESSION_TTL_SECONDS });
+  await Promise.all([
+    redis.set(key, JSON.stringify(session), { EX: ROOM_SESSION_TTL_SECONDS }),
+    redis.set(`${key}:binding`, getSessionBinding(request), { EX: ROOM_SESSION_TTL_SECONDS }),
+  ]);
   return { redis, key, token, session };
 }

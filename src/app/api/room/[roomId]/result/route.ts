@@ -5,6 +5,7 @@ import { calculateResult, isPracticeComplete, type Language } from "@/lib/questi
 import { readRoomSession } from "@/lib/room-session";
 import { recordRoomPracticeResult } from "@/lib/learning-stats";
 import type { PracticeSession } from "@/lib/session-types";
+import { isValidPracticeSession } from "@/lib/session";
 import { isRateLimited } from "@/lib/rate-limit";
 import { bodyError, readJsonBody } from "@/lib/request-body";
 
@@ -57,9 +58,16 @@ export async function POST(request: NextRequest, context: { params: Promise<{ ro
   if (!stored) return NextResponse.json({ error: "Sesión no encontrada" }, { status: 404, headers: noStore });
   const body = await readJsonBody(request);
   if (!body.ok) return NextResponse.json(bodyError(body, "Datos inválidos"), { status: body.reason === "too-large" ? 413 : 400, headers: noStore });
-  const payload = (body.value ?? {}) as { language?: string };
+  const payload = (body.value ?? {}) as { language?: string; answers?: unknown };
   const language = languageOf(payload.language ?? null);
-  const completed = stored.stored.session.finished ? { session: stored.stored.session, result: await calculateResult(stored.stored.session.answers, language, 1, 5, stored.stored.session.questionOrder, stored.questions) } : await finalize(stored, language);
+  let finalContext = stored;
+  if (payload.answers && typeof payload.answers === "object" && !Array.isArray(payload.answers)) {
+    const candidate: PracticeSession = { ...stored.stored.session, answers: { ...stored.stored.session.answers, ...(payload.answers as Record<string, number>) } };
+    if (!isValidPracticeSession(candidate, stored.questions)) return NextResponse.json({ error: "Las respuestas enviadas no son válidas" }, { status: 400, headers: noStore });
+    await stored.redis.set(stored.stored.key, JSON.stringify(candidate), { EX: 60 * 60 * 24 * 2 });
+    finalContext = { ...stored, stored: { ...stored.stored, session: candidate } };
+  }
+  const completed = finalContext.stored.session.finished ? { session: finalContext.stored.session, result: await calculateResult(finalContext.stored.session.answers, language, 1, 5, finalContext.stored.session.questionOrder, finalContext.questions) } : await finalize(finalContext, language);
   if (!completed) return NextResponse.json({ error: "La sesión no está completa y aún tiene tiempo" }, { status: 409, headers: noStore });
   return NextResponse.json(completed.result, { headers: noStore });
 }

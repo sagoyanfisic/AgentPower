@@ -66,7 +66,12 @@ export async function POST(request: NextRequest, context: { params: Promise<{ ro
     return withRoomCookie(NextResponse.json({ room: roomPublicData(roomContext.room), session: publicSession(finishedSession), expired: true }, { headers: noStore }), stored.token, request);
   }
   if (stored.session.finished) return withRoomCookie(NextResponse.json({ room: roomPublicData(roomContext.room), session: publicSession(stored.session) }, { headers: noStore }), stored.token, request);
-  const candidate: PracticeSession = { ...stored.session, current: value.current ?? stored.session.current, answers: value.answers ?? stored.session.answers };
+  const candidate: PracticeSession = {
+    ...stored.session,
+    // A delayed request must not overwrite progress saved by a newer request.
+    current: Math.max(stored.session.current, value.current ?? stored.session.current),
+    answers: { ...stored.session.answers, ...(value.answers ?? {}) },
+  };
   if (!isValidPracticeSession(candidate, roomContext.questions) || candidate.roomId !== roomId || candidate.questionBankVersion !== roomContext.room.bankVersion || candidate.firstName !== stored.session.firstName || candidate.lastName !== stored.session.lastName || candidate.avatar !== stored.session.avatar) {
     return NextResponse.json({ error: "Sesión inválida" }, { status: 400, headers: noStore });
   }
